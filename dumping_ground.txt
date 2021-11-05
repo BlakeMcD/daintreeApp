@@ -1,0 +1,61 @@
+<%= select_tag "category", options_for_select(["Jeans", "Shirts", "Jackets"]), include_blank: true%>
+
+<%= select_tag "category", options_from_collection_for_select(@all_items, "id", "sub_category"), include_blank: true%>
+
+
+    <%= select_tag "category", options_for_select(@all_items.pluck(:sub_category).uniq), include_blank: true%>
+
+
+How to make a search where it matches both conditions, 
+     def self.by_store(store_id)
+        where(store: store_id, sub_category: "jeans") 
+    end
+
+
+    
+    <label>Price:</label>
+    <%= number_to_currency item.price_cents / 100.0 %> <br>
+
+    Mens Jeans: https://connor.imgix.net/Connor/Products/C18DE105_DEN_1.png
+
+    Womens Jeans: https://image.made-in-china.com/2f0j00GFwQfiAagsgY/OEM-Brand-Light-Blue-Damaged-Distressed-Skinny-Denim-Jeans-Women.jpg
+
+    Man TShirt: https://cdn.shopify.com/s/files/1/1779/6353/products/tallest-man-on-earth-guitar-tshirt-black-front_1024x1024.png?v=1494317466
+    
+    Woman TShirt: https://www.painfulclothing.com/784-thickbox_default/hate-woman-tee.jpg
+
+    Man Jacket: https://ae01.alicdn.com/kf/Hbe699bdd0f904814aefeb078d00f54eeq/PU-Leather-Jacket-Men-Winter-Casual-Stand-Jackets-Man-Motorcycle-Vintage-Leather-Mens-Jacket-Coat-Chaqueta.jpg
+
+    Woman Jacket: https://www.distressedjackets.com/image/cache//catalog/2020/oko-1000x1000.PNG
+
+
+
+THIS IMAGE CODE WORKS:
+<img src=<%=item.img_url%>>
+
+
+What I deleted from the original admin form
+<form method='post'%>
+    <input name='admin_name'>
+    <input type='submit' value='login'>
+</form>
+
+The wip session form: 
+<%= form_for @user, controller: 'sessions', action: 'create' do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+  <%= f.submit "create" %>
+<% end %>
+
+
+Aesthetic Inspiration
+https://www.universalstore.com/mens-store
+
+COLOUR PALETTE
+DARK = #191919
+WHITE = #ffffff
+FADED GOLD = efe9ce

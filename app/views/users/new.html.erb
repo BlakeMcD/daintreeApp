@@ -1,0 +1,48 @@
+<h1>Add a new user</h1>
+
+<%=form_for @user do |f|%>
+
+    <label>Username:</label>
+    <%= f.text_field :username %>
+
+    <label>Password:</label>
+    <%= f.text_field :password %>
+
+    <label>Password Confirmation:</label>
+    <%= f.text_field :password_confirmation %>
+
+    <label>First Name:</label>
+    <%= f.text_field :first_name %>
+    <label>Last Name:</label>
+    <%= f.text_field :last_name %> <br><br>
+
+    <label>Birthday:</label>
+    <%= f.date_field :dob %> <br><br>
+
+    <label>Email:</label>
+    <%= f.text_field :email %>
+    <label>Phone:</label>
+    <%= f.text_field :phone %> <br><br>
+
+
+
+    <%= f.fields_for :addresses do |addr| %>
+        <%= addr.label :street_address %>
+        <%= addr.text_field :street_address %><br>
+
+        <%= addr.label :city %>
+        <%= addr.text_field :city %><br>
+
+        <%= addr.label :state %>
+        <%= addr.text_field :state %><br>
+
+        <%= addr.label :postcode %>
+        <%= addr.text_field :postcode %><br>
+
+        <%= addr.label :address_type %>
+        <%= addr.text_field :address_type %><br>
+    <%end%>
+
+    <br>
+    <%=f.submit "Submit User"%>
+<%end%>

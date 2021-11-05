@@ -1,0 +1,35 @@
+<h1>Add a new item</h1>
+
+<%=form_for @item do |f|%>
+    <label>Item Name:</label>
+    <%= f.text_field :name %> <br><br>
+
+    <label>Category:</label>
+    <%= f.text_field :category %> <br><br>
+
+    <label>Sub-Category:</label>
+    <%= f.text_field :sub_category %> <br><br>
+
+    <label>Stock:</label>
+    <%= f.text_field :stock %> <br><br>
+
+    <label>Price (in cents):</label>
+    <%= f.number_field :price_cents %> <br><br>
+
+    <label>Brief Description:</label>
+    <%=f.text_area :description %> <br><br>
+
+    <label>Size:</label>
+    <%= f.text_field :size %> <br><br>
+
+    <label>Gender:</label>
+    <%= f.text_field :gender %> <br><br>
+
+    <label>Image URL:</label>
+    <%= f.text_field :img_url %> <br><br>
+
+     <label>Store:</label>
+    <%= f.text_field :store_id %> <br><br>
+
+    <%=f.submit "Submit Item"%>
+<%end%>

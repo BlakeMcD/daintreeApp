@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DaintreeApp</title>
+    <title>Daintree</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,8 @@
   </head>
 
   <body>
+  <p>You have visited this site <%=pluralize @visit_count, 'time'%>.</p>
+  <p><%=session[:cart]%></p>
     <%= yield %>
   </body>
 </html>
