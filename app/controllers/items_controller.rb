@@ -8,7 +8,6 @@ class ItemsController < ApplicationController
     end
 
     def new
-        before_action :require_admin_login
         @item = Item.new
     end
 
@@ -119,11 +118,22 @@ class ItemsController < ApplicationController
         # return head(:forbidden) unless session.include? :admin_name
 
 
-        if session[:admin] == true
-            redirect_to '/items'
-        else
+        # if session[:admin] == true
+        #     # redirect_to '/items'
+        # else
+        #     return head(:forbidden)
+        # end
+
+        if session[:admin] == false
+            # redirect_to '/items'
             return head(:forbidden)
         end
+
+        # if session[:admin] == false
+        #     return head(:forbidden)
+        # else
+        #     redirect_to '/items'
+        # end
     end
     
 
