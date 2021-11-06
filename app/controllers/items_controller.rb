@@ -125,7 +125,6 @@ class ItemsController < ApplicationController
         # end
 
         if session[:admin] == false
-            # redirect_to '/items'
             return head(:forbidden)
         end
 

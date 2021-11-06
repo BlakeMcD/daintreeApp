@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    # before_action :require_admin_login
+    before_action :require_admin_login, :only => [:index]
 
     def index
         @users = User.all
@@ -8,6 +8,11 @@ class UsersController < ApplicationController
     def show
         @user = User.find(params[:id])
         @address = Address.where(user_id: @user.id)
+
+        unless session[:admin] == true || session[:user_id] == @user.id
+            flash[:alert] = "You don't have permission to access this, ya swine!"
+            redirect_to items_path
+        end
     end
 
     def new
@@ -28,6 +33,11 @@ class UsersController < ApplicationController
         # raise @user.inspect
         @address = @user.address
         # raise @address.inspect
+
+        unless session[:admin] == true || session[:user_id] == @user.id
+            flash[:alert] = "You don't have permission to access this, ya swine!"
+            redirect_to items_path
+        end
     end
 
     def update
@@ -45,7 +55,9 @@ class UsersController < ApplicationController
     private 
 
     def require_admin_login
-        return head(:forbidden) unless session.include? :admin_name
+        if session[:admin] == false
+            return head(:forbidden)
+        end
     end
 
     def user_params

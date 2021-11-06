@@ -1,5 +1,5 @@
 class StoresController < ApplicationController
-    # before_action :require_admin_login, :except => [:index, :show]
+    before_action :require_admin_login, :except => [:index, :show]
     # skip_before_action :require_admin_login, only: [:index]
 
 
