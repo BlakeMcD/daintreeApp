@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
     end
 
     def new
+        before_action :require_admin_login
         @item = Item.new
     end
 
@@ -109,10 +110,21 @@ class ItemsController < ApplicationController
         params.require(:item).permit(:name, :category, :sub_category, :stock, :price_cents, :description,:size, :gender, :img_url, :store_id)
     end
 
-    def require_admin_login
-        return head(:forbidden) unless session.include? :admin_name
-    end
+    # def require_admin_login
+    #     return head(:forbidden) unless session.include? :admin_name
+    # end
 
+    def require_admin_login
+        # raise session.inspect
+        # return head(:forbidden) unless session.include? :admin_name
+
+
+        if session[:admin] == true
+            redirect_to '/items'
+        else
+            return head(:forbidden)
+        end
+    end
     
 
 end
