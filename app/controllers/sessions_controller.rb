@@ -16,13 +16,15 @@ class SessionsController < ApplicationController
         # raise params.inspect
         # return head(:forbidden) unless user.authenticate(params[:password])
         session[:user_id] = @user.id
+        session[:admin] = @user.admin
 
         redirect_to items_path
     end
 
     def destroy
         # session.delete :admin_name
-        session.delete :username
+        session.delete :user_id
+        session.delete :admin
         redirect_to items_path  #gotta fix this. 
       end
 
