@@ -3,7 +3,7 @@ class User < ApplicationRecord
     has_many :items
     has_many :stores, through: :items
     has_one :address
-    
+
     accepts_nested_attributes_for :address
 
     # accepts_nested_attributes_for :address, reject_if: :address_is_blank
@@ -14,7 +14,7 @@ class User < ApplicationRecord
     validates :last_name, presence: true
     validates :email, uniqueness: true, presence: true
     validates :phone, presence: true
-    validates :dob, presence: true
+    # validates :dob, presence: true
 
 
     # def number_not_allowed
