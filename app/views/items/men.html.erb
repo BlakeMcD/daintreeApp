@@ -1,34 +1,4 @@
-<h1>All Items</h1>
-
-<h3>Your Cart</h3>
-<details>
-    <ul>
-        <%@cart.each do |item|%>
-        <li><%=item.sub_category%></li>
-        <p><%= link_to 'remove_from_cart', remove_from_cart_path(item.id), method: :delete%></p>
-        <%end%>
-    </ul>
-</details>
-
-
-<h3>Filter Items</h3>        
-
-<%if @stores != nil %>
-    <%= form_tag("/items", method: "get") do%>
-
-        <%= select_tag "store", options_from_collection_for_select(@stores, "id", "name"), include_blank: true%>
-       
-
-        <%= select_tag "category", options_for_select(["jeans", "shirt", "jacket"]), include_blank: true%>
-
-        <%= select_tag "size", options_for_select(["S", "M", "L"]), include_blank: true%>
-
-        <%= select_tag "gender", options_for_select(["F", "M"]), include_blank: true%>
-
-
-        <%=submit_tag "Filter"%>
-    <%end%>
- <%end%>
+<h1>You're on the MAAAAN PAGE! ROOOOAAAAAAAR!</h1>
 
 <ul>
 
@@ -73,7 +43,3 @@
 
 <%end%>
 </ul>
-
-
-
-

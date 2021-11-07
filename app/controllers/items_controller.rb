@@ -36,48 +36,57 @@ class ItemsController < ApplicationController
 
     def index
 
-        # @items = Item.all
-        @stores = Store.all #for the stores filter
-        
-        pst = params[:store]
-        pc = params[:category]
-        psi = params[:size]
-        pg = params[:gender]
-
-        #The mega-if statement...god forgive me
-        if !pst.blank? && !pc.blank? && !psi.blank? && !pg.blank?
-            @items = Item.store_is_selected(pst).sub_category_is_selected(pc).size_is_selected(psi).gender_is_selected(pg)
-        elsif !pst.blank? && !pc.blank? && !psi.blank?
-            @items = Item.store_is_selected(pst).sub_category_is_selected(pc).size_is_selected(psi)
-        elsif !pst.blank? && !psi.blank? && !pg.blank?
-            @items = Item.store_is_selected(pst).size_is_selected(psi).gender_is_selected(pg)
-        elsif !pst.blank? && !pc.blank? && !pg.blank?
-            @items = Item.store_is_selected(pst).sub_category_is_selected(pc).gender_is_selected(pg)
-        elsif !pc.blank? && !psi.blank? && !pg.blank?
-            @items = Item.sub_category_is_selected(pc).size_is_selected(psi).gender_is_selected(pg)
-        elsif !pst.blank? && !pc.blank?
-            @items = Item.store_is_selected(pst).sub_category_is_selected(pc)
-        elsif !pst.blank? && !psi.blank?
-            @items = Item.store_is_selected(pst).size_is_selected(psi)
-        elsif !pst.blank? && !pg.blank?
-            @items = Item.store_is_selected(pst).gender_is_selected(pg)
-        elsif !pc.blank? && !psi.blank? 
-            @items = Item.sub_category_is_selected(pc).size_is_selected(psi)
-        elsif !pc.blank? && !pg.blank?
-            @items = Item.sub_category_is_selected(pc).gender_is_selected(pg)
-        elsif !psi.blank? && !pg.blank?
-            @items = Item.size_is_selected(psi).gender_is_selected(pg)
-        elsif !pst.blank?
-            @items = Item.store_is_selected(pst)
-        elsif !pc.blank?
-            @items = Item.sub_category_is_selected(pc)
-        elsif !psi.blank?
-            @items = Item.size_is_selected(psi)
-        elsif !pg.blank?
-            @items = Item.size_is_selected(pg)
+        #change what @stores is based on the route
+        if params[:store_id]
+            # raise params.inspect
+            store = params[:store_id]
+            @items = Item.where(store_id: store)
+            
         else
-            @items = Item.all
+            @stores = Store.all #for the stores filter
+
+            pst = params[:store]
+            pc = params[:category]
+            psi = params[:size]
+            pg = params[:gender]
+
+            #The mega-if statement...god forgive me
+            if !pst.blank? && !pc.blank? && !psi.blank? && !pg.blank?
+                @items = Item.store_is_selected(pst).sub_category_is_selected(pc).size_is_selected(psi).gender_is_selected(pg)
+            elsif !pst.blank? && !pc.blank? && !psi.blank?
+                @items = Item.store_is_selected(pst).sub_category_is_selected(pc).size_is_selected(psi)
+            elsif !pst.blank? && !psi.blank? && !pg.blank?
+                @items = Item.store_is_selected(pst).size_is_selected(psi).gender_is_selected(pg)
+            elsif !pst.blank? && !pc.blank? && !pg.blank?
+                @items = Item.store_is_selected(pst).sub_category_is_selected(pc).gender_is_selected(pg)
+            elsif !pc.blank? && !psi.blank? && !pg.blank?
+                @items = Item.sub_category_is_selected(pc).size_is_selected(psi).gender_is_selected(pg)
+            elsif !pst.blank? && !pc.blank?
+                @items = Item.store_is_selected(pst).sub_category_is_selected(pc)
+            elsif !pst.blank? && !psi.blank?
+                @items = Item.store_is_selected(pst).size_is_selected(psi)
+            elsif !pst.blank? && !pg.blank?
+                @items = Item.store_is_selected(pst).gender_is_selected(pg)
+            elsif !pc.blank? && !psi.blank? 
+                @items = Item.sub_category_is_selected(pc).size_is_selected(psi)
+            elsif !pc.blank? && !pg.blank?
+                @items = Item.sub_category_is_selected(pc).gender_is_selected(pg)
+            elsif !psi.blank? && !pg.blank?
+                @items = Item.size_is_selected(psi).gender_is_selected(pg)
+            elsif !pst.blank?
+                @items = Item.store_is_selected(pst)
+            elsif !pc.blank?
+                @items = Item.sub_category_is_selected(pc)
+            elsif !psi.blank?
+                @items = Item.size_is_selected(psi)
+            elsif !pg.blank?
+                @items = Item.size_is_selected(pg)
+            else
+                @items = Item.all
+            end
         end
+        
+        
     end
 
     def add_to_cart
@@ -93,6 +102,13 @@ class ItemsController < ApplicationController
 
         redirect_to '/items'
 
+    end
+
+    def men
+        @items = Item.where(gender: 'M')
+    end
+
+    def women
     end
 
     private

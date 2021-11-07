@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
   resources :address
   resources :items
-  resources :stores
+  resources :stores do
+    resources :items, only: [:index, :show]
+    end
   resources :users
+
+  #custom routes
+  get "/men", to: "items#men"
+  get "/women", to: "items#women"
 
   #User Session
   get "/login", to: "sessions#new"
