@@ -20,8 +20,14 @@ class StoresController < ApplicationController
 
     def create
         @store = Store.new(store_params)
-        @store.save
-        redirect_to stores_path
+        if @store.valid?
+            @store.save
+            redirect_to stores_path
+        else
+            render :new
+        end
+        # @store.save
+        # redirect_to stores_path
     end
 
     def edit
@@ -37,7 +43,10 @@ class StoresController < ApplicationController
     private
 
     def require_admin_login
-        return head(:forbidden) unless session.include? :admin_name
+        # return head(:forbidden) unless session.include? :admin_name
+        if session[:admin] == false
+            return head(:forbidden)
+        end
     end
 
     def store_params

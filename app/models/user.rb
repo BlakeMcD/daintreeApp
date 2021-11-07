@@ -3,7 +3,11 @@ class User < ApplicationRecord
     has_many :items
     has_many :stores, through: :items
     has_one :address
+    
     accepts_nested_attributes_for :address
+
+    # accepts_nested_attributes_for :address, reject_if: :address_is_blank
+
     validates :username, uniqueness: true, presence: true
     validates :password, presence: true, length: { minimum: 5 }
     validates :first_name, presence: true
@@ -20,5 +24,10 @@ class User < ApplicationRecord
     #         errors.add(:first_name, "Name cannot contain numbers")
     #     end  
     # end
+
+    # def address_is_blank(attributes)
+    #     raise session.inspect
+    #     attributes['street_address'].empty?
+    # end 
 
 end
