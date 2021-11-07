@@ -35,56 +35,90 @@ class ItemsController < ApplicationController
     end
 
     def index
+   
+        @stores = Store.all #for the stores filter
+
+
 
         #change what @stores is based on the route
         if params[:store_id]
-            # raise params.inspect
-            store = params[:store_id]
-            # @items = Item.where(store_id: store)
-            
-        else
-            @stores = Store.all #for the stores filter
 
+    
+            pc = params[:category]
+            psi = params[:size]
+            pg = params[:gender]
+            #The mega-if statement...god forgive me
+            #The mega-if statement...god forgive me
+            if !pg.blank? && !pc.blank? && !psi.blank?
+                items = Item.sub_category_is_selected(pc).size_is_selected(psi).gender_is_selected(pg)
+            elsif !pg.blank? && !psi.blank?
+                items = Item.size_is_selected(psi).gender_is_selected(pg)
+            elsif !pg.blank? && !pc.blank?
+                items = Item.sub_category_is_selected(pc).gender_is_selected(pg)
+            elsif !pc.blank? && !psi.blank?
+                items = Item.sub_category_is_selected(pc).size_is_selected(psi)
+            elsif !pg.blank? && !pc.blank?
+                items = Item.sub_category_is_selected(pc).gender_is_selected(pg)
+            elsif !pg.blank? 
+                items = Item.gender_is_selected(pg)
+            elsif !pc.blank?
+                items = Item.sub_category_is_selected(pc)
+            elsif !psi.blank?
+                items = Item.size_is_selected(psi)
+            else
+                items = Item.all
+            end
+
+            @store = params[:store_id]
+            @items = items.where(store_id: @store)
+
+            @store_route = true
+        else
+            
             pst = params[:store]
             pc = params[:category]
             psi = params[:size]
             pg = params[:gender]
-
             #The mega-if statement...god forgive me
             if !pst.blank? && !pc.blank? && !psi.blank? && !pg.blank?
-                @items = Item.store_is_selected(pst).sub_category_is_selected(pc).size_is_selected(psi).gender_is_selected(pg) 
+                items = Item.store_is_selected(pst).sub_category_is_selected(pc).size_is_selected(psi).gender_is_selected(pg) 
             elsif !pst.blank? && !pc.blank? && !psi.blank?
-                @items = Item.store_is_selected(pst).sub_category_is_selected(pc).size_is_selected(psi)
+                items = Item.store_is_selected(pst).sub_category_is_selected(pc).size_is_selected(psi)
             elsif !pst.blank? && !psi.blank? && !pg.blank?
-                @items = Item.store_is_selected(pst).size_is_selected(psi).gender_is_selected(pg)
+                items = Item.store_is_selected(pst).size_is_selected(psi).gender_is_selected(pg)
             elsif !pst.blank? && !pc.blank? && !pg.blank?
-                @items = Item.store_is_selected(pst).sub_category_is_selected(pc).gender_is_selected(pg)
+                items = Item.store_is_selected(pst).sub_category_is_selected(pc).gender_is_selected(pg)
             elsif !pc.blank? && !psi.blank? && !pg.blank?
-                @items = Item.sub_category_is_selected(pc).size_is_selected(psi).gender_is_selected(pg)
+                items = Item.sub_category_is_selected(pc).size_is_selected(psi).gender_is_selected(pg)
             elsif !pst.blank? && !pc.blank?
-                @items = Item.store_is_selected(pst).sub_category_is_selected(pc)
+                items = Item.store_is_selected(pst).sub_category_is_selected(pc)
             elsif !pst.blank? && !psi.blank?
-                @items = Item.store_is_selected(pst).size_is_selected(psi)
+                items = Item.store_is_selected(pst).size_is_selected(psi)
             elsif !pst.blank? && !pg.blank?
-                @items = Item.store_is_selected(pst).gender_is_selected(pg)
+                items = Item.store_is_selected(pst).gender_is_selected(pg)
             elsif !pc.blank? && !psi.blank? 
-                @items = Item.sub_category_is_selected(pc).size_is_selected(psi)
+                items = Item.sub_category_is_selected(pc).size_is_selected(psi)
             elsif !pc.blank? && !pg.blank?
-                @items = Item.sub_category_is_selected(pc).gender_is_selected(pg)
+                items = Item.sub_category_is_selected(pc).gender_is_selected(pg)
             elsif !psi.blank? && !pg.blank?
-                @items = Item.size_is_selected(psi).gender_is_selected(pg)
+                items = Item.size_is_selected(psi).gender_is_selected(pg)
             elsif !pst.blank?
-                @items = Item.store_is_selected(pst)
+                items = Item.store_is_selected(pst)
             elsif !pc.blank?
-                @items = Item.sub_category_is_selected(pc)
+                items = Item.sub_category_is_selected(pc)
             elsif !psi.blank?
-                @items = Item.size_is_selected(psi)
+                items = Item.size_is_selected(psi)
             elsif !pg.blank?
-                @items = Item.size_is_selected(pg)
+                items = Item.size_is_selected(pg)
             else
-                @items = Item.all
+                items = Item.all
             end
+
+            @items = items
+
+            @store_route = false
         end
+
         
         
     end
