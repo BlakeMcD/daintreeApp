@@ -2,6 +2,17 @@ class Item < ApplicationRecord
     belongs_to :store, optional:true
     belongs_to :user, optional:true
 
+    validates :name, presence: true
+    validates :category, presence: true
+    validates :sub_category, presence: true
+    validates :stock, presence: true
+    validates :price_cents, presence: true
+    validates :description, presence: true
+    validates :size, presence: true
+    validates :gender, presence: true
+    validates :img_url, presence: true
+    validates :store_id, presence: true
+
     scope :store_is_selected, ->(store_id) { where(store: store_id)}
     scope :sub_category_is_selected, ->(category) { where(sub_category: category)}
     scope :size_is_selected, ->(size) { where(size: size)}
