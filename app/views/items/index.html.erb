@@ -53,7 +53,10 @@
     <%=item.gender%> <br>
 
     <label>Store:</label>
-    <%=item.store.name%> <br><br>
+    <%if item.store != nil %> 
+    <%=item.store.name%>
+    <%end%>
+    <br><br>
 
     <% if @cart.include?(item) %>
     <p>Added to cart</p>

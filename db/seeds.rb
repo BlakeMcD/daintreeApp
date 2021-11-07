@@ -86,8 +86,10 @@ u1 = User.find_by id:1
 u2 = User.find_by id:2
 u3 = User.find_by id:3
 u4 = User.find_by id:4
+
 address_one = u1.build_address(street_address:'253 Franklin Street', city: 'Melbourne', state: 'VIC', postcode: 3000, address_type: 'home')
 address_one.save
+
 address_two = u2.build_address(street_address:'26 Martens Place', city: 'Tingalpa', state: 'QLD', postcode: 4173, address_type: 'home')
 address_two.save
 
