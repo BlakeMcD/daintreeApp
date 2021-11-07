@@ -1,1 +1,59 @@
 <h1>You're on DA WOMAN PAAAAAGE!!!</h1>
+
+
+<%if @stores != nil %>
+    <%= form_tag("/women", method: "get") do%>
+
+        <%= select_tag "store", options_from_collection_for_select(@stores, "id", "name"), include_blank: true%>
+       
+        <%= select_tag "category", options_for_select(["jeans", "shirt", "jacket"]), include_blank: true%>
+
+        <%= select_tag "size", options_for_select(["S", "M", "L"]), include_blank: true%>
+
+        <%=submit_tag "Filter"%>
+    <%end%>
+<%end%>
+
+<ul>
+
+<%=@items.each do |item|%>
+
+    <label>Name:</label>
+    <%=item.name%> <br>
+
+    <label>Image</label>
+    <p>code for the image stored in dumping ground</p>
+
+    <label>Sub-Category:</label>
+    <%=item.sub_category%> <br>
+
+    <label>Stock:</label>
+    <%=item.stock%> <br>
+
+    <label>Price:</label>
+    <%= number_to_currency item.price_cents / 100.0 %> <br>
+
+    <label>Description:</label>
+    <%=item.description%> <br>
+
+    <label>Size:</label>
+    <%=item.size%> <br>
+ 
+    <label>Gender:</label>
+    <%=item.gender%> <br>
+
+    <label>Store:</label>
+    <%if item.store != nil %> 
+    <%=item.store.name%>
+    <%end%>
+    <br><br>
+
+    <% if @cart.include?(item) %>
+    <p>Added to cart</p>
+    <p><%= link_to 'remove_from_cart', remove_from_cart_path(item.id), method: :delete%></p>
+    <%else%>
+    <p><%= link_to 'add_to_cart', add_to_cart_path(item.id), method: :post%></p>
+    <%end%>
+
+<%end%>
+</ul>

@@ -18,7 +18,6 @@
 
         <%= select_tag "store", options_from_collection_for_select(@stores, "id", "name"), include_blank: true%>
        
-
         <%= select_tag "category", options_for_select(["jeans", "shirt", "jacket"]), include_blank: true%>
 
         <%= select_tag "size", options_for_select(["S", "M", "L"]), include_blank: true%>
@@ -28,7 +27,7 @@
 
         <%=submit_tag "Filter"%>
     <%end%>
- <%end%>
+<%end%>
 
 <ul>
 
