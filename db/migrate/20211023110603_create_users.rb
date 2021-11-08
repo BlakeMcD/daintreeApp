@@ -10,6 +10,11 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :phone
       t.datetime :dob
 
+      # OmniAuth
+      t.string :name
+      t.string :image
+      t.string :uid
+
       t.timestamps
     end
   end

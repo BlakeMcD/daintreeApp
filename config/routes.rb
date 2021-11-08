@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   get "/logout", to: "sessions#destroy"
 
+  #OmniAuth
+  get '/auth/facebook/callback' => 'sessions#create'
+
   #Add to cart
   get 'about', to: 'items#about' #is this necessary??
   post 'items/add_to_cart/:id', to: 'items#add_to_cart', as: 'add_to_cart'
