@@ -22,6 +22,12 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+#OmniAuth
+gem 'omniauth', '~> 1.6', '>= 1.6.1'
+gem 'omniauth-facebook', '~> 9.0'
+
+gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 

@@ -6,19 +6,25 @@ class SessionsController < ApplicationController
     end
 
     def create 
+
+        # ORIGINAL CODE - PASSWORD LOGIN
         @user = User.find_by(username: params[:username])
         return head(:forbidden) unless @user&.authenticate(params[:password])
-        # raise params.inspect
-        # session[:admin_name] = params[:admin_name]
-        # user = User.find_by(username: params[:username])
-        # user = user.try(authenticate, params[:username][:password])
-        # return head(:forbidden) unless user
-        # raise params.inspect
-        # return head(:forbidden) unless user.authenticate(params[:password])
         session[:user_id] = @user.id
         session[:admin] = @user.admin
 
         redirect_to items_path
+
+        # #OMNIAUTH
+        # @user = User.find_or_create_by(uid: auth['uid']) do |u|
+        #     u.name = auth['info']['name']
+        #     u.email = auth['info']['email']
+        #     u.image = auth['info']['image']
+        # end
+      
+        # session[:user_id] = @user.id
+      
+        # redirect_to items_path
     end
 
     def destroy
@@ -28,18 +34,10 @@ class SessionsController < ApplicationController
         redirect_to items_path  #gotta fix this. 
       end
 
+    private
 
-    #STORE SESSIONS
-    # def new
-    #     redirect_to '/store/login'
-    # end
+    def auth
+        request.env['omniauth.auth']
+    end
 
-    # def create
-    #     if !params[:name] || params[:name].empty?
-    #         redirect_to '/store/login'
-    #     else
-    #         session[:name] = params[:name]
-    #         redirect_to '/stores'
-    #     end
-    # end
 end
