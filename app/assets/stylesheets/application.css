@@ -13,3 +13,84 @@
  *= require_tree .
  *= require_self
  */
+
+/* FOR ENTIRE DOC */
+body {
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+/* HEADER */
+
+/* dividing the header into 3 diff sections */
+header {
+    display: flex;
+    background-color: #191919;
+    color: white;
+    padding: 10px 20px 10px 20px;
+    /* justify-content: center;
+    align-items: center; */
+}
+
+.header_box {
+    border: 1px #ccc solid;
+}
+
+#header_logo {
+    flex: 2;
+    text-align: center;
+}
+
+/* to further sub-divide first flex items */
+.header_box:nth-of-type(1) {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.header_link {
+
+}
+
+/* to further sub-divide third flex items */
+.header_box:nth-of-type(3) {
+    flex: 1;
+    display: flex;
+    text-align: right;
+    justify-content: center;
+    align-items: center;
+}
+
+#user_links_spacer {
+    flex: 4;
+    text-align: right;
+}
+#user_links_image_signin {
+    flex: 1;
+    text-align: right;
+}
+
+#user_links_image_cart {
+    flex: 1;
+    text-align: right;
+}
+
+/* images and heights */
+
+#header_logo img {
+    height: 50px;
+}
+
+#user_links_image_signin img {
+    height: 40px;
+}
+
+#user_links_image_cart img {
+    height: 40px;
+}
+
+
+
+
+

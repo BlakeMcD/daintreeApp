@@ -59,3 +59,81 @@ COLOUR PALETTE
 DARK = #191919
 WHITE = #ffffff
 FADED GOLD = efe9ce
+
+
+
+The stores/id/index filter
+<%if @stores != nil %>
+    <%= form_tag("/items", method: "get") do%>
+
+        <%= select_tag "store", options_from_collection_for_select(@stores, "id", "name"), include_blank: true%>
+       
+        <%= select_tag "category", options_for_select(["jeans", "shirt", "jacket"]), include_blank: true%>
+
+        <%= select_tag "size", options_for_select(["S", "M", "L"]), include_blank: true%>
+
+        <%= select_tag "gender", options_for_select(["F", "M"]), include_blank: true%>
+
+
+        <%=submit_tag "Filter"%>
+    <%end%>
+<%end%>
+
+
+ORIGINAL index
+def index
+
+        #change what @stores is based on the route
+        if params[:store_id]
+            # raise params.inspect
+            store = params[:store_id]
+            @items = Item.where(store_id: store)
+            @test = "This is a test"
+            
+        else
+            @test = "The test is blank"
+            @stores = Store.all #for the stores filter
+
+            pst = params[:store]
+            pc = params[:category]
+            psi = params[:size]
+            pg = params[:gender]
+
+            #The mega-if statement...god forgive me
+            if !pst.blank? && !pc.blank? && !psi.blank? && !pg.blank?
+                @items = Item.store_is_selected(pst).sub_category_is_selected(pc).size_is_selected(psi).gender_is_selected(pg) 
+            elsif !pst.blank? && !pc.blank? && !psi.blank?
+                @items = Item.store_is_selected(pst).sub_category_is_selected(pc).size_is_selected(psi)
+            elsif !pst.blank? && !psi.blank? && !pg.blank?
+                @items = Item.store_is_selected(pst).size_is_selected(psi).gender_is_selected(pg)
+            elsif !pst.blank? && !pc.blank? && !pg.blank?
+                @items = Item.store_is_selected(pst).sub_category_is_selected(pc).gender_is_selected(pg)
+            elsif !pc.blank? && !psi.blank? && !pg.blank?
+                @items = Item.sub_category_is_selected(pc).size_is_selected(psi).gender_is_selected(pg)
+            elsif !pst.blank? && !pc.blank?
+                @items = Item.store_is_selected(pst).sub_category_is_selected(pc)
+            elsif !pst.blank? && !psi.blank?
+                @items = Item.store_is_selected(pst).size_is_selected(psi)
+            elsif !pst.blank? && !pg.blank?
+                @items = Item.store_is_selected(pst).gender_is_selected(pg)
+            elsif !pc.blank? && !psi.blank? 
+                @items = Item.sub_category_is_selected(pc).size_is_selected(psi)
+            elsif !pc.blank? && !pg.blank?
+                @items = Item.sub_category_is_selected(pc).gender_is_selected(pg)
+            elsif !psi.blank? && !pg.blank?
+                @items = Item.size_is_selected(psi).gender_is_selected(pg)
+            elsif !pst.blank?
+                @items = Item.store_is_selected(pst)
+            elsif !pc.blank?
+                @items = Item.sub_category_is_selected(pc)
+            elsif !psi.blank?
+                @items = Item.size_is_selected(psi)
+            elsif !pg.blank?
+                @items = Item.size_is_selected(pg)
+            else
+                @items = Item.all
+            end
+        end
+        
+        
+    end
