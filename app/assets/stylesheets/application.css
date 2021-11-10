@@ -27,6 +27,10 @@ h2 {
 
 /* HEADER */
 
+.header_link {
+    color: white;
+    text-decoration: none;
+}
 /* dividing the header into 3 diff sections */
 header {
     display: flex;
@@ -185,3 +189,64 @@ footer {
 
 
 
+/* ITEMS PAGE */
+
+.all_items {
+    display: inline-block;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.item {
+    width: 300px;
+    float: left;
+    padding: 50px 25px 25px 25px;
+}
+
+.item_image_and_logo {
+    position: relative;
+    border: 5px solid black;
+}
+
+.item_image {
+    width: 300px;
+}
+
+.item_image_logo {
+    width: 50px;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+}
+
+.item_title {
+    text-align: center;
+}
+
+.item_price {
+    text-align: center;
+}
+
+.add_to_cart {
+    text-decoration: none;
+    background-color: #e8e8e8; 
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 8px;
+    transition-duration: 0.5s;
+}
+
+.remove_from_cart {
+    text-decoration: none;
+    background-color: black; 
+    border: none;
+    color: #e8e8e8;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 8px;
+    transition-duration: 0.5s;
+}

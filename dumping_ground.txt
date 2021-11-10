@@ -58,6 +58,8 @@ https://www.universalstore.com/mens-store
 COLOUR PALETTE
 DARK = #191919
 LIGHTER DARK = #464646
+LIGHT GREY = #bababa
+LLIGHTEST GREY = #e8e8e8
 WHITE = #ffffff
 FADED GOLD = efe9ce
 

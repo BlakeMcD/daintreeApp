@@ -2,10 +2,18 @@
 
 <header>
     <div class="header_box" id="browsing_links">
-        <div class="header_link">COLLECTION</div>
-        <div class="header_link">STORES</div>
-        <div class="header_link">WOMEN</div>
-        <div class="header_link">MEN</div>
+        <div class="header_link">
+            <%=link_to "COLLECTION", "/items", class: 'header_link' %>
+        </div>
+        <div class="header_link">
+            <%=link_to "STORES", "/stores", class: 'header_link' %>
+        </div>
+        <div class="header_link">
+            <%=link_to "WOMEN", "/women", class: 'header_link' %>
+        </div>
+        <div class="header_link">
+            <%=link_to "MEN", "/men", class: 'header_link' %>
+        </div>
     </div>
 
     <div class="header_box" id="header_logo">
@@ -15,7 +23,7 @@
     <div class="header_box" id="user_links">
         <div id="user_links_spacer"></div>
         <div id="user_links_image_signin">
-            <%=image_tag("icons/user_signin_white.png") %>
+            <%=link_to image_tag("icons/user_signin_white.png"), {action: 'new', controller: 'sessions'}%>
         </div>
         <div id="user_links_image_cart">
             <%=image_tag("icons/shopping_cart_white.png") %>
