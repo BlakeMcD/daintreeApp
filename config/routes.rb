@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     end
   resources :users
 
+  #home
+  root 'items#home'
+
   #custom routes
   get "/men", to: "items#men"
   get "/women", to: "items#women"

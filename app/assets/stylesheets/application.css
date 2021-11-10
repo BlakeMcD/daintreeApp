@@ -13,3 +13,240 @@
  *= require_tree .
  *= require_self
  */
+
+/* FOR ENTIRE DOC */
+body {
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+/* HEADER */
+
+.header_link {
+    color: white;
+    text-decoration: none;
+}
+/* dividing the header into 3 diff sections */
+header {
+    display: flex;
+    background-color: #191919;
+    color: white;
+    padding: 10px 20px 10px 20px;
+}
+
+.header_box {
+    border: 1px #ccc solid;
+}
+
+#header_logo {
+    flex: 2;
+    text-align: center;
+}
+
+/* to further sub-divide first flex items */
+.header_box:nth-of-type(1) {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* to further sub-divide third flex items */
+.header_box:nth-of-type(3) {
+    flex: 1;
+    display: flex;
+    text-align: right;
+    justify-content: center;
+    align-items: center;
+}
+
+#user_links_spacer {
+    flex: 4;
+    text-align: right;
+}
+#user_links_image_signin {
+    flex: 1;
+    text-align: right;
+}
+
+#user_links_image_cart {
+    flex: 1;
+    text-align: right;
+}
+
+/* images and heights */
+
+#header_logo img {
+    height: 50px;
+}
+
+#user_links_image_signin img {
+    height: 40px;
+}
+
+#user_links_image_cart img {
+    height: 40px;
+}
+
+/* SPACER */
+
+.section_spacer {
+    height: 100px;
+}
+
+/* SECTION - MEN AND WOMEN */
+
+#men_and_women {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.mw_image img {
+    width: 60%;
+}
+
+#mw_image_w {
+    padding-right: 20px;
+    text-align: right;
+}
+
+#mw_image_m {
+    padding-left: 20px;
+    text-align: left;
+}
+
+/* button */
+
+.btn_homepage_mw {
+    background-color: #191919; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 32px;
+    border-radius: 8px;
+    transition-duration: 0.5s;
+}
+
+.btn_homepage_mw:hover {
+    background-color: #464646;
+}
+
+#btn_homepage_w {
+    position: absolute;
+    top: 75%;
+    left: 25%;
+}
+
+#btn_homepage_m {
+    position: absolute;
+    top: 75%;
+    right: 25%;
+}
+
+/* SECTION - STORES */
+
+#featured_stores {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#featured_stores img {
+    width: 200px;
+}
+
+/* FOOTER */
+
+footer {
+    display: flex;
+    background-color: #191919;
+    color: white;
+    padding: 10px 20px 10px 20px;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.footer_icon {
+    border: 1px #ccc solid;
+}
+ 
+.footer_icon_image {
+    text-align: center;
+}
+
+.footer_icon_image img {
+    height: 80px;
+}
+
+
+
+/* ITEMS PAGE */
+
+.all_items {
+    display: inline-block;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.item {
+    width: 300px;
+    float: left;
+    padding: 50px 25px 25px 25px;
+}
+
+.item_image_and_logo {
+    position: relative;
+    border: 5px solid black;
+}
+
+.item_image {
+    width: 300px;
+}
+
+.item_image_logo {
+    width: 50px;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+}
+
+.item_title {
+    text-align: center;
+}
+
+.item_price {
+    text-align: center;
+}
+
+.add_to_cart {
+    text-decoration: none;
+    background-color: #e8e8e8; 
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 8px;
+    transition-duration: 0.5s;
+}
+
+.remove_from_cart {
+    text-decoration: none;
+    background-color: black; 
+    border: none;
+    color: #e8e8e8;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 8px;
+    transition-duration: 0.5s;
+}
