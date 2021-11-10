@@ -57,6 +57,7 @@ https://www.universalstore.com/mens-store
 
 COLOUR PALETTE
 DARK = #191919
+LIGHTER DARK = #464646
 WHITE = #ffffff
 FADED GOLD = efe9ce
 
@@ -137,3 +138,6 @@ def index
         
         
     end
+
+
+    <a href="link going somewhere" class="btn">I'm a link/button</a>

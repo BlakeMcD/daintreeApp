@@ -20,6 +20,11 @@ body {
     margin: 0px;
 }
 
+h2 {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
 /* HEADER */
 
 /* dividing the header into 3 diff sections */
@@ -84,16 +89,22 @@ header {
     height: 40px;
 }
 
+/* SPACER */
+
+.section_spacer {
+    height: 100px;
+}
+
 /* SECTION - MEN AND WOMEN */
+
 #men_and_women {
     display: flex;
     justify-content: center;
-    
+    position: relative;
 }
 
-.mw_image {
-    flex: 1;
-    text-align: center;
+.mw_image img {
+    width: 60%;
 }
 
 #mw_image_w {
@@ -106,8 +117,46 @@ header {
     text-align: left;
 }
 
-.mw_image img {
-    width: 50%;
+/* button */
+
+.btn_homepage_mw {
+    background-color: #191919; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 32px;
+    border-radius: 8px;
+    transition-duration: 0.5s;
+}
+
+.btn_homepage_mw:hover {
+    background-color: #464646;
+}
+
+#btn_homepage_w {
+    position: absolute;
+    top: 75%;
+    left: 25%;
+}
+
+#btn_homepage_m {
+    position: absolute;
+    top: 75%;
+    right: 25%;
+}
+
+/* SECTION - STORES */
+
+#featured_stores {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#featured_stores img {
+    width: 200px;
 }
 
 /* FOOTER */
