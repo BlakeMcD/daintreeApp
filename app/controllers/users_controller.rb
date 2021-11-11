@@ -62,7 +62,8 @@ class UsersController < ApplicationController
     private 
 
     def require_admin_login
-        if session[:admin] == false
+        p session
+        if !session[:admin]
             return head(:forbidden)
         end
     end

@@ -9,7 +9,7 @@ gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
-# Use SCSS for stylesheets
+# Use SCSS for stylesheetsy
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.0'
@@ -25,6 +25,10 @@ gem 'bcrypt', '~> 3.1.7'
 #OmniAuth
 gem 'omniauth', '~> 1.6', '>= 1.6.1'
 gem 'omniauth-facebook', '~> 9.0'
+
+gem 'omniauth-rails_csrf_protection'
+
+gem 'thin'
 
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 

@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy"
 
   #OmniAuth
-  get '/auth/facebook/callback' => 'sessions#create'
+  get '/auth/facebook/callback' => 'sessions#create_facebook'
 
   #Add to cart
   get 'about', to: 'items#about' #is this necessary??

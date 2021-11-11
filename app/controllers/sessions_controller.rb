@@ -27,10 +27,27 @@ class SessionsController < ApplicationController
         # redirect_to items_path
     end
 
+    def create_facebook
+        #OMNIAUTH
+        @user = User.find_or_create_by(uid: auth['uid']) do |u|
+            u.name = auth['info']['name']
+            u.email = auth['info']['email']
+            u.image = auth['info']['image']
+        end
+      
+        session[:user_id] = @user.id
+        session[:admin] = @user.admin
+
+        p session
+      
+        redirect_to items_path
+    end
+
     def destroy
         # session.delete :admin_name
         session.delete :user_id
         session.delete :admin
+        p session
         redirect_to items_path  #gotta fix this. 
       end
 
