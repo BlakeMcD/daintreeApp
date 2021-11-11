@@ -1,88 +1,173 @@
-<h1>All Items</h1>
+<header>
+    <div class="header_box" id="browsing_links">
+        <div class="header_link">
+            <%=link_to "COLLECTION", "/items", class: 'header_link' %>
+        </div>
+        <div class="header_link">
+            <%=link_to "STORES", "/stores", class: 'header_link' %>
+        </div>
+        <div class="header_link">
+            <%=link_to "WOMEN", "/women", class: 'header_link' %>
+        </div>
+        <div class="header_link">
+            <%=link_to "MEN", "/men", class: 'header_link' %>
+        </div>
+    </div>
 
-<h3>Your Cart</h3>
-<details>
-    <ul>
-        <%@cart.each do |item|%>
-        <li><%=item.sub_category%></li>
-        <p><%= link_to 'remove_from_cart', remove_from_cart_path(item.id), method: :delete%></p>
-        <%end%>
-    </ul>
-</details>
+    <div class="header_box" id="header_logo">
+        <%=link_to image_tag("logos/daintree_logo_landscape_white.png"), {action: 'home', controller: 'items'}  %>
+    </div>
 
-
-<h3>Filter Items</h3>   
+    <div class="header_box" id="user_links">
+        <div id="user_links_spacer"></div>
+        <div id="user_links_image_signin">
+            <%=link_to image_tag("icons/user_signin_white.png"), {action: 'new', controller: 'sessions'}%>
+        </div>
+        <div id="user_links_image_cart">
+            <%=image_tag("icons/shopping_cart_white.png") %>
+        </div>
+    </div>
+</header>
 
 <% if @store_route == true%>
-    <%= form_tag("/stores/"+@store+"/items", method: "get") do%>
-       
-        <%= select_tag "category", options_for_select(["jeans", "shirt", "jacket"]), include_blank: true%>
-
-        <%= select_tag "size", options_for_select(["S", "M", "L"]), include_blank: true%>
-
-        <%= select_tag "gender", options_for_select(["F", "M"]), include_blank: true%>
-
-        <%=submit_tag "Filter"%>
+    <%if @store == '1'%>
+        <a href="http://localhost:3000/stores/1/items">
+        <img class="store_logo_header" alt="Pact" src="https://images.milledcdn.com/2021-02-05/Cer7seWhw13Tx3NK/qh24Po1vnwyg.png">
+        </a>
+    <%elsif @store == '2'%>
+        <a href="http://localhost:3000/stores/2/items">
+        <img class="store_logo_header" alt="Patagonia" src="https://wallpaperaccess.com/full/4416552.jpg">
+        </a>
+     <%elsif @store == '3'%>
+        <a href="http://localhost:3000/stores/3/items">
+        <img class="store_logo_header" alt="Kotn" src="https://slowfashioncanada.ca/wp-content/uploads/2020/11/kotn-logo.png">
+        </a>
     <%end%>
-<%else%> 
-    <%= form_tag("/items", method: "get") do%>
-
-        <%= select_tag "store", options_from_collection_for_select(@stores, "id", "name"), include_blank: true%>
-       
-        <%= select_tag "category", options_for_select(["jeans", "shirt", "jacket"]), include_blank: true%>
-
-        <%= select_tag "size", options_for_select(["S", "M", "L"]), include_blank: true%>
-
-        <%= select_tag "gender", options_for_select(["F", "M"]), include_blank: true%>
-
-        <%=submit_tag "Filter"%>
-    <%end%>
+<%else%>
+<h1 class="page_heading_1">Search It All!</h1>
 <%end%>
 
 
+<div class="filter_and_items">
 
-<div class="all_items">
-    <%@items.each do |item|%>
+    <div class="filter_form">
+    <h3>Filter Items</h3>   
+        <% if @store_route == true%>
+            <%= form_tag("/stores/"+@store+"/items", method: "get") do%>
+            
+                <div class="filter_category">
+                    <p class="filter_label">Category:</p>
+                    <%= select_tag "category", options_for_select(["jeans", "shirt", "jacket"]), include_blank: true%>
+                </div>
 
-        <div class="item">
-            <div class="item_image_and_logo">
-                <img class="item_image" src=<%=item.img_url%>>
-                
-                
-                <%if item.store != nil %> 
-                    <%case item.store.id%>
-                        <%when 1%>
-                        <img class="item_image_logo" alt="Pact" src="https://schimiggy.com/wp-content/uploads/2020/04/pact-apparel-logo-square.jpg">
-                        <%when 2%>
-                        <img class="item_image_logo" alt="Patagonia" src="https://www.charlespost.com/wp-content/uploads/2020/08/Patagonia-Logo-Square.png">
-                        <%when 3%>
-                        <img class="item_image_logo" alt="Kotn" src="https://fashionhedge.com/wp-content/uploads/2019/05/ezgif.com-webp-to-jpg.jpg">
-                    <%end%>
-                <%end%>
-                
-            </div>
+                <div class="filter_size">
+                    <p class="filter_label">Size:</p>
+                    <%= select_tag "size", options_for_select(["S", "M", "L"]), include_blank: true%>
+                </div>
 
-            <div class="item_title">
-            <%=item.sub_category%><%=" - "%><%=item.name%> <br>
-            </div>
+                <div class="filter_gender">
+                    <p class="filter_label">Gender:</p>
+                    <%= select_tag "gender", options_for_select(["F", "M"]), include_blank: true%>
+                </div>
 
-            <div class="item_price">
-            <%= number_to_currency item.price_cents / 100.0 %> <br>
-            </div>
-
-            <% if @cart.include?(item) %>
-                <p class="remove_from_cart"><%= link_to 'REMOVE FROM CART', remove_from_cart_path(item.id), method: :delete, class: "remove_from_cart"%></p>
-            <%else%>
-                <p class="add_to_cart"><%= link_to 'ADD TO CART', add_to_cart_path(item.id), method: :post, class: "add_to_cart"%></p>
+                <div class="filter_submit">
+                    <%=submit_tag "Filter"%>
+                </div>
             <%end%>
+        <%else%> 
+            <%= form_tag("/items", method: "get") do%>
+                <div class="filter_store">
+                    <p class="filter_label">Store:</p>
+                    <%= select_tag "store", options_from_collection_for_select(@stores, "id", "name"),  include_blank: true%>
+                </div>
 
-        </div>
-    <%end%>
+                <div class="filter_category">
+                    <p class="filter_label">Category:</p>
+                    <%= select_tag "category", options_for_select(["jeans", "shirt", "jacket"]), include_blank: true%>
+                </div>
+
+                <div class="filter_size">
+                    <p class="filter_label">Size:</p>
+                    <%= select_tag "size", options_for_select(["S", "M", "L"]), include_blank: true%>
+                </div>
+
+                <div class="filter_gender">
+                    <p class="filter_label">Gender:</p>
+                    <%= select_tag "gender", options_for_select(["F", "M"]), include_blank: true%>
+                </div>
+
+                <div class="filter_submit">
+                    <%=submit_tag "Filter"%>
+                </div>
+            <%end%>
+        <%end%>
+    </div>
+
+
+    <div class="all_items">
+        <%@items.each do |item|%>
+
+            <div class="item">
+                <div class="item_image_and_logo">
+                    <img class="item_image" src=<%=item.img_url%>>
+                    
+                    
+                    <%if item.store != nil %> 
+                        <%case item.store.id%>
+                            <%when 1%>
+                            <img class="item_image_logo" alt="Pact" src="https://schimiggy.com/wp-content/uploads/2020/04/pact-apparel-logo-square.jpg">
+                            <%when 2%>
+                            <img class="item_image_logo" alt="Patagonia" src="https://www.charlespost.com/wp-content/uploads/2020/08/Patagonia-Logo-Square.png">
+                            <%when 3%>
+                            <img class="item_image_logo" alt="Kotn" src="https://fashionhedge.com/wp-content/uploads/2019/05/ezgif.com-webp-to-jpg.jpg">
+                        <%end%>
+                    <%end%>
+                    
+                </div>
+
+                <div class="item_title">
+                <%=item.sub_category%><%=" - "%><%=item.name%> <br>
+                </div>
+
+                <div class="item_price">
+                <%= number_to_currency item.price_cents / 100.0 %> <br>
+                </div>
+
+                <% if @cart.include?(item) %>
+                    <p class="remove_from_cart"><%= link_to 'REMOVE FROM CART', remove_from_cart_path(item.id), method: :delete, class: "remove_from_cart"%></p>
+                <%else%>
+                    <p class="add_to_cart"><%= link_to 'ADD TO CART', add_to_cart_path(item.id), method: :post, class: "add_to_cart"%></p>
+                <%end%>
+
+            </div>
+        <%end%>
+    </div>
+
 </div>
 
 
+<footer>
+    <div class="footer_spacer"></div>
 
+    <div class="footer_icon">
+        <div class="footer_icon_image"><%=image_tag("icons/free_delivery_white.png") %></div>
+        <div>FREE DELIVERY OVER $50</div> 
+    </div>
+    <div class="footer_icon">
+        <div class="footer_icon_image"><%=image_tag("icons/buy_now_pay_later_white.png") %></div>
+        <div>BUY NOW PAY LATER</div> 
+    </div>
+    <div class="footer_icon">
+        <div class="footer_icon_image"><%=image_tag("icons/free_returns_white.png") %></div>
+        <div>FREE RETURNS</div> 
+    </div>
+    <div class="footer_icon">
+        <div class="footer_icon_image"><%=image_tag("icons/click_and_collect_white.png") %></div>
+        <div>CLICK AND COLLECT</div> 
+    </div>
 
+    <div class="footer_spacer"></div>
+</footer>
 
 
 

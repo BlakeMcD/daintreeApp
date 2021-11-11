@@ -143,3 +143,19 @@ def index
 
 
     <a href="link going somewhere" class="btn">I'm a link/button</a>
+
+
+    CART CODE 
+    <h3>Your Cart</h3>
+<details>
+    <ul>
+        <%@cart.each do |item|%>
+        <li><%=item.sub_category%></li>
+        <p><%= link_to 'remove_from_cart', remove_from_cart_path(item.id), method: :delete%></p>
+        <%end%>
+    </ul>
+</details>
+
+CODE FROM APPLICATION.HTML.ERB THAT DISPLAYED HOW MANY TIMES HAVE VISITED PAGE
+  <p>You have visited this site <%=pluralize @visit_count, 'time'%>.</p>
+  <p><%=session[:cart]%></p>

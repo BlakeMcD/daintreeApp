@@ -1,7 +1,69 @@
-<h1>Stores</h1>
+<header>
+    <div class="header_box" id="browsing_links">
+        <div class="header_link">
+            <%=link_to "COLLECTION", "/items", class: 'header_link' %>
+        </div>
+        <div class="header_link">
+            <%=link_to "STORES", "/stores", class: 'header_link' %>
+        </div>
+        <div class="header_link">
+            <%=link_to "WOMEN", "/women", class: 'header_link' %>
+        </div>
+        <div class="header_link">
+            <%=link_to "MEN", "/men", class: 'header_link' %>
+        </div>
+    </div>
 
-<ul>
-    <%@stores.each do |store|%>
-        <li><%=link_to store.name, store_path(store)%></li>
-    <%end%>
-</ul>
+    <div class="header_box" id="header_logo">
+        <%=link_to image_tag("logos/daintree_logo_landscape_white.png"), {action: 'home', controller: 'items'}  %>
+    </div>
+
+    <div class="header_box" id="user_links">
+        <div id="user_links_spacer"></div>
+        <div id="user_links_image_signin">
+            <%=link_to image_tag("icons/user_signin_white.png"), {action: 'new', controller: 'sessions'}%>
+        </div>
+        <div id="user_links_image_cart">
+            <%=image_tag("icons/shopping_cart_white.png") %>
+        </div>
+    </div>
+</header>
+
+<h1>Pick a store to browse</h1>
+
+<section id="featured_stores">
+    <a href="http://localhost:3000/stores/1/items">
+        <img alt="Pact" src="https://schimiggy.com/wp-content/uploads/2020/04/pact-apparel-logo-square.jpg">
+    </a>
+    <a href="http://localhost:3000/stores/2/items">
+        <img alt="Patagonia" src="https://www.charlespost.com/wp-content/uploads/2020/08/Patagonia-Logo-Square.png">
+    </a>
+    <a href="http://localhost:3000/stores/3/items">
+        <img alt="Kotn" src="https://fashionhedge.com/wp-content/uploads/2019/05/ezgif.com-webp-to-jpg.jpg">
+    </a>
+</section>
+
+<div class="section_spacer"></div>
+
+<footer>
+    <div class="footer_spacer"></div>
+
+    <div class="footer_icon">
+        <div class="footer_icon_image"><%=image_tag("icons/free_delivery_white.png") %></div>
+        <div>FREE DELIVERY OVER $50</div> 
+    </div>
+    <div class="footer_icon">
+        <div class="footer_icon_image"><%=image_tag("icons/buy_now_pay_later_white.png") %></div>
+        <div>BUY NOW PAY LATER</div> 
+    </div>
+    <div class="footer_icon">
+        <div class="footer_icon_image"><%=image_tag("icons/free_returns_white.png") %></div>
+        <div>FREE RETURNS</div> 
+    </div>
+    <div class="footer_icon">
+        <div class="footer_icon_image"><%=image_tag("icons/click_and_collect_white.png") %></div>
+        <div>CLICK AND COLLECT</div> 
+    </div>
+
+    <div class="footer_spacer"></div>
+</footer>
