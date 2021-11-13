@@ -394,7 +394,7 @@ footer {
 
 .login_options {
     display: flex;
-    margin: 0% 10% 0% 10%;
+    margin: 0% 10% 10% 10%;
 }
 
 .login_username {
@@ -422,24 +422,3 @@ footer {
     margin-bottom: 10%;
 }
 
-.new_user_page_link {
-    text-align: center;
-}
-
-.btn_create_user {
-    background-color: #191919; 
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 32px;
-    border-radius: 8px;
-    transition-duration: 0.5s;
-    
-}
-
-
-.btn_create_user:hover {
-    background-color: #464646;
-}

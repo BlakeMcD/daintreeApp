@@ -163,3 +163,14 @@ CODE FROM APPLICATION.HTML.ERB THAT DISPLAYED HOW MANY TIMES HAVE VISITED PAGE
 
   ORIGINAL LOGIN WITH FACEBOOK LINK - WAS WORKING
     <%= link_to('Log in with Facebook!', '/auth/facebook', method: :post) %>
+
+
+BUTTON THAT WAS ON LOGIN PAGE
+    <div class="new_user_login_page">
+    <h3 class="new_user_page_link">Don't have an account? Sign up!</h3><br>
+
+
+    <div class="new_user_page_link">
+        <a href="/users/new" class="btn_create_user" id="btn_create_user">CREATE AN ACCOUNT</a>
+    </div>
+</div>
