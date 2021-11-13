@@ -44,4 +44,6 @@ class Item < ApplicationRecord
     def self.jacket
         where(sub_category: "jacket")
     end
+
+    
 end

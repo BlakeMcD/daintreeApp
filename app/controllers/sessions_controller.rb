@@ -51,6 +51,7 @@ class SessionsController < ApplicationController
         redirect_to items_path  #gotta fix this. 
       end
 
+
     private
 
     def auth

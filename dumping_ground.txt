@@ -159,3 +159,7 @@ def index
 CODE FROM APPLICATION.HTML.ERB THAT DISPLAYED HOW MANY TIMES HAVE VISITED PAGE
   <p>You have visited this site <%=pluralize @visit_count, 'time'%>.</p>
   <p><%=session[:cart]%></p>
+
+
+  ORIGINAL LOGIN WITH FACEBOOK LINK - WAS WORKING
+    <%= link_to('Log in with Facebook!', '/auth/facebook', method: :post) %>
