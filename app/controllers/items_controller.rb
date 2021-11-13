@@ -138,8 +138,16 @@ class ItemsController < ApplicationController
         session[:cart] -= [id]
 
         redirect_to '/items'
-
     end
+
+    def remove_from_cart_in_cart
+        id = params[:id].to_i
+        session[:cart] -= [id]
+
+        redirect_to '/cart'
+    end
+
+    
 
     def men
         @stores = Store.all #for the stores filter
@@ -201,7 +209,13 @@ class ItemsController < ApplicationController
         @items = items.where(gender: 'F')
     end
 
+    def cart
+    end
+
+
     private
+
+    
 
     def initialize_session
         session[:visit_count] ||= 0

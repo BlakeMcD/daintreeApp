@@ -1,0 +1,143 @@
+<header>
+    <div class="header_box" id="browsing_links">
+        <div class="header_link">
+            <%=link_to "COLLECTION", "/items", class: 'header_link' %>
+        </div>
+        <div class="header_link">
+            <%=link_to "STORES", "/stores", class: 'header_link' %>
+        </div>
+        <div class="header_link">
+            <%=link_to "WOMEN", "/women", class: 'header_link' %>
+        </div>
+        <div class="header_link">
+            <%=link_to "MEN", "/men", class: 'header_link' %>
+        </div>
+    </div>
+
+    <div class="header_box" id="header_logo">
+        <%=link_to image_tag("logos/daintree_logo_landscape_white.png"), {action: 'home', controller: 'items'}  %>
+    </div>
+
+    <div class="header_box" id="user_links">
+        <div id="user_links_spacer"></div>
+        <div id="user_links_image_signin">
+            <%=link_to image_tag("icons/user_signin_white.png"), {action: 'new', controller: 'sessions'}%>
+        </div>
+        <div id="user_links_image_cart">
+            <%=image_tag("icons/shopping_cart_white.png") %>
+        </div>
+    </div>
+</header>
+
+
+    <h2>Your Cart</h2>
+
+
+<div class="cart">
+    <div class="cart_items">
+        <%@cart.each do |item|%>
+
+
+            <div class=line_break></div>
+
+            <div class="cart_item">
+
+        
+                <div class="cart_image_and_logo">
+                    <img class="cart_item_image" src=<%=item.img_url%>>
+
+                    <div class="cart_logo">                             
+                        <%if item.store != nil %> 
+                            <%case item.store.id%>
+                                <%when 1%>
+                                <img class="cart_item_image_logo" alt="Pact" src="https://schimiggy.com/wp-content/uploads/2020/04/pact-apparel-logo-square.jpg">
+                                <%when 2%>
+                                <img class="cart_item_image_logo" alt="Patagonia" src="https://www.charlespost.com/wp-content/uploads/2020/08/Patagonia-Logo-Square.png">
+                                <%when 3%>
+                                <img class="cart_item_image_logo" alt="Kotn" src="https://fashionhedge.com/wp-content/uploads/2019/05/ezgif.com-webp-to-jpg.jpg">
+                            <%end%>
+                        <%end%>                   
+                    </div>
+                </div>
+
+                <div class="cart_details">
+                     
+                     
+
+                    <div class="item_title">
+                    <%=item.sub_category%><%=" - "%><%=item.name%> <br>
+                    </div>
+
+                    <div class="item_price">
+                    <%= number_to_currency item.price_cents / 100.0 %> <br>
+                    </div>
+
+                    <% if @cart.include?(item) %>                
+
+                            <p class="remove_from_cart_in_cart"><%= link_to 'REMOVE FROM CART', remove_from_cart_in_cart_path(item.id), method: :delete, class: "remove_from_cart_in_cart"%></p>
+                            
+                    <%end%>
+
+
+                </div>
+               
+
+
+            </div>
+            
+        <%end%>
+    </div>
+
+    <div class="total">
+        <div class="total_components">
+            <p class="total_heading">Your Items</p>
+            <div class="item_price_listing">
+                <%@cart.each do |item|%>
+                    <span class="total_item_label">
+                        <%=item.sub_category%><%=" - "%><%=item.name%><%=":"%>
+                    </span>
+                    <span class="total_item_price">
+                        <%=number_to_currency item.price_cents / 100.0%>
+                    </span>
+                    <br>
+                <%end%>
+
+                <div class="grand_total">
+                <br>
+                    <span class="grand_total_text">Grand Total:</span>
+                    <span class="grand_total_price">
+                        <%=number_to_currency @cart.to_a.sum{ |item| item.price_cents} / 100.0%>
+                    </span>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+<footer>
+    <div class="footer_spacer"></div>
+
+    <div class="footer_icon">
+        <div class="footer_icon_image"><%=image_tag("icons/free_delivery_white.png") %></div>
+        <div>FREE DELIVERY OVER $50</div> 
+    </div>
+    <div class="footer_icon">
+        <div class="footer_icon_image"><%=image_tag("icons/buy_now_pay_later_white.png") %></div>
+        <div>BUY NOW PAY LATER</div> 
+    </div>
+    <div class="footer_icon">
+        <div class="footer_icon_image"><%=image_tag("icons/free_returns_white.png") %></div>
+        <div>FREE RETURNS</div> 
+    </div>
+    <div class="footer_icon">
+        <div class="footer_icon_image"><%=image_tag("icons/click_and_collect_white.png") %></div>
+        <div>CLICK AND COLLECT</div> 
+    </div>
+
+    <div class="footer_spacer"></div>
+</footer>
