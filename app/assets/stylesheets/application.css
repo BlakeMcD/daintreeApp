@@ -391,8 +391,20 @@ footer {
 }
 
 /* LOGIN FORM  */
-.login_form {
+
+.login_options {
+    display: flex;
+    margin: 0% 10% 0% 10%;
+}
+
+.login_username {
     text-align: center;
+    flex: 1;
+}
+
+.login_omniauth {
+    text-align: center;
+    flex: 1;
 }
 
 .omniauth_link {
@@ -403,4 +415,31 @@ footer {
 .omniauth_link img{
     width: 200px;
 
+}
+
+.new_user_login_page {
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+.new_user_page_link {
+    text-align: center;
+}
+
+.btn_create_user {
+    background-color: #191919; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 32px;
+    border-radius: 8px;
+    transition-duration: 0.5s;
+    
+}
+
+
+.btn_create_user:hover {
+    background-color: #464646;
 }

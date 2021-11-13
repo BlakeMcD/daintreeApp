@@ -29,32 +29,51 @@
     </div>
 </header>
 
-<h1>User Login Form</h1>
+<h1>Login</h1>
 
-<form method='post' class="login_form"%>
-    <label>Username:</label>
-    <input name='username'>
-    <br><br>
-    <label>Password:</label>
-    <input type="password" name='password'>
-    <br><br>
-    <input type='submit' value='login'>
+<div class="login_options">
 
-</form>
+    
+    <form method='post' class="login_username"%>
 
-<% if session[:user_id] %>
-  <h1><%= @user.name %></h1>
-  <h2>Email: <%= @user.email %></h2>
-  <h2>Facebook UID: <%= @user.uid %></h2>
-  <img src="<%= @user.image %>">
-<% else %>
+        <h3>Login with your username</h3><br>
 
- 
+        <label>Username:</label>
+        <input name='username'>
+        <br><br>
+        <label>Password:</label>
+        <input type="password" name='password'>
+        <br><br>
+        <input type='submit' value='login'>
 
-  <div class="omniauth_link">
-    <%=link_to image_tag("buttons/login_with_facebook.png"), '/auth/facebook', {method: :post}  %> 
-  </div>
+    </form>
 
+    
+    <div class="login_omniauth">
+
+        <h3>Login with your social account</h3><br>
+
+        <% if session[:user_id] %>
+            <h1><%= @user.name %></h1>
+            <h2>Email: <%= @user.email %></h2>
+            <h2>Facebook UID: <%= @user.uid %></h2>
+            <img src="<%= @user.image %>">
+        <% else %>
+            <div class="omniauth_link">
+                <%=link_to image_tag("buttons/login_with_facebook.png"), '/auth/facebook', {method: :post}  %> 
+            </div>
+    </div>
+
+</div>
+
+<div class="new_user_login_page">
+    <h3 class="new_user_page_link">Don't have an account? Sign up!</h3><br>
+
+
+    <div class="new_user_page_link">
+        <a href="/users/new" class="btn_create_user" id="btn_create_user">CREATE AN ACCOUNT</a>
+    </div>
+</div>
   
 <% end %>
 
