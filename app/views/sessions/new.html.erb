@@ -1,11 +1,45 @@
+<header>
+    <div class="header_box" id="browsing_links">
+        <div class="header_link">
+            <%=link_to "COLLECTION", "/items", class: 'header_link' %>
+        </div>
+        <div class="header_link">
+            <%=link_to "STORES", "/stores", class: 'header_link' %>
+        </div>
+        <div class="header_link">
+            <%=link_to "WOMEN", "/women", class: 'header_link' %>
+        </div>
+        <div class="header_link">
+            <%=link_to "MEN", "/men", class: 'header_link' %>
+        </div>
+    </div>
+
+    <div class="header_box" id="header_logo">
+        <%=link_to image_tag("logos/daintree_logo_landscape_white.png"), {action: 'home', controller: 'items'}  %>
+    </div>
+
+    <div class="header_box" id="user_links">
+        <div id="user_links_spacer"></div>
+        <div id="user_links_image_signin">
+            <%=link_to image_tag("icons/user_signin_white.png"), {action: 'new', controller: 'sessions'}%>
+        </div>
+        <div id="user_links_image_cart">
+             <%=link_to image_tag("icons/shopping_cart_white.png"), {action: 'cart', controller: 'items'}%>
+        </div>
+    </div>
+</header>
+
 <h1>User Login Form</h1>
 
-<form method='post'%>
+<form method='post' class="login_form"%>
     <label>Username:</label>
     <input name='username'>
+    <br><br>
     <label>Password:</label>
-    <input name='password'>
+    <input type="password" name='password'>
+    <br><br>
     <input type='submit' value='login'>
+
 </form>
 
 <% if session[:user_id] %>
@@ -14,5 +48,37 @@
   <h2>Facebook UID: <%= @user.uid %></h2>
   <img src="<%= @user.image %>">
 <% else %>
-  <%= link_to('Log in with Facebook!', '/auth/facebook', method: :post) %>
+
+ 
+
+  <div class="omniauth_link">
+    <%=link_to image_tag("buttons/login_with_facebook.png"), '/auth/facebook', {method: :post}  %> 
+  </div>
+
+  
 <% end %>
+
+
+
+<footer>
+    <div class="footer_spacer"></div>
+
+    <div class="footer_icon">
+        <div class="footer_icon_image"><%=image_tag("icons/free_delivery_white.png") %></div>
+        <div>FREE DELIVERY OVER $50</div> 
+    </div>
+    <div class="footer_icon">
+        <div class="footer_icon_image"><%=image_tag("icons/buy_now_pay_later_white.png") %></div>
+        <div>BUY NOW PAY LATER</div> 
+    </div>
+    <div class="footer_icon">
+        <div class="footer_icon_image"><%=image_tag("icons/free_returns_white.png") %></div>
+        <div>FREE RETURNS</div> 
+    </div>
+    <div class="footer_icon">
+        <div class="footer_icon_image"><%=image_tag("icons/click_and_collect_white.png") %></div>
+        <div>CLICK AND COLLECT</div> 
+    </div>
+
+    <div class="footer_spacer"></div>
+</footer>

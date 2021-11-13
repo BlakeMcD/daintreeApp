@@ -389,3 +389,18 @@ footer {
     height:1px;
     width:50%;
 }
+
+/* LOGIN FORM  */
+.login_form {
+    text-align: center;
+}
+
+.omniauth_link {
+    text-align: center;
+    margin-top: 10px;;
+}
+
+.omniauth_link img{
+    width: 200px;
+
+}
