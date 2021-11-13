@@ -18,8 +18,8 @@
 body {
     box-sizing: border-box;
     margin: 0px;
-    background-image: url(CandH02.jpeg);
-    background-size: cover;
+    /* background-image: image_url('CandH02.jpeg'); */
+    /* background-size: cover; */
 }
 
 h1 { text-align: center;

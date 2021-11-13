@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback' => 'sessions#create_facebook'
 
   #Add to cart
-  get 'about', to: 'items#about' #is this necessary??
+  get 'cart', to: 'items#cart' #to display cart
   post 'items/add_to_cart/:id', to: 'items#add_to_cart', as: 'add_to_cart'
   delete 'items/remove_from_cart/:id', to: 'items#remove_from_cart', as: 'remove_from_cart'
   #STORE SESSION - Not active
