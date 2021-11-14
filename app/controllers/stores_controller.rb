@@ -44,7 +44,7 @@ class StoresController < ApplicationController
 
     def require_admin_login
         # return head(:forbidden) unless session.include? :admin_name
-        if session[:admin] == false
+        if session[:admin] != true
             return head(:forbidden)
         end
     end

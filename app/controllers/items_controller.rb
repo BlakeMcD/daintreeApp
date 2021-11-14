@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
     end
 
     def new
+        # raise session.inspect
         @item = Item.new
     end
 
@@ -237,30 +238,12 @@ class ItemsController < ApplicationController
         params.require(:item).permit(:name, :category, :sub_category, :stock, :price_cents, :description,:size, :gender, :img_url, :store_id)
     end
 
-    # def require_admin_login
-    #     return head(:forbidden) unless session.include? :admin_name
-    # end
-
     def require_admin_login
-        # raise session.inspect
-        # return head(:forbidden) unless session.include? :admin_name
-
-
-        # if session[:admin] == true
-        #     # redirect_to '/items'
-        # else
-        #     return head(:forbidden)
-        # end
-
-        if session[:admin] == false
+    
+        if session[:admin] != true
             return head(:forbidden)
         end
 
-        # if session[:admin] == false
-        #     return head(:forbidden)
-        # else
-        #     redirect_to '/items'
-        # end
     end
     
 
