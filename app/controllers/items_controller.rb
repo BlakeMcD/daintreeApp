@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
     end
 
     def home
+        @stores = Store.all
     end
 
     def new
