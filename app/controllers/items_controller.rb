@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
     before_action :initialize_session
     before_action :increment_visit_count
     before_action :load_cart
-    before_action :require_admin_login, :except => [:index, :show, :men, :women, :home, :cart, :add_to_cart, :remove_from_cart, :remove_from_cart_in_cart]
+    before_action :require_admin_login, :only => [:new, :create, :edit, :update]
 
     def about
     end
