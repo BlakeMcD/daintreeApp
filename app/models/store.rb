@@ -5,5 +5,7 @@ class Store < ApplicationRecord
 
     validates :name, presence: true
     validates :description, presence: true
+    validates :logo_url_square, presence: true
+    validates :logo_url_landscape, presence: true
 
 end
