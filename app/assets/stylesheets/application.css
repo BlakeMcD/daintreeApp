@@ -431,3 +431,61 @@ footer {
 .new_user_form {
     margin-left: 35%;
 }
+
+/* ADMIN FORMS */
+
+.admin {
+    background-color: #ebebeb;
+    margin: 0% 30% 10% 30%;
+    border-radius: 8px;
+    padding-bottom: 5%;
+}
+
+.admin_heading {
+    text-align: center;
+    margin: 5% auto 5% auto;
+    padding: 5% 0 0 0;
+ 
+}
+
+.admin_section {
+    text-align: center;
+}
+
+.btn_admin {
+    background-color: #191919; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 32px;
+    border-radius: 8px;
+    transition-duration: 0.5s;
+}
+
+.btn_admin:hover {
+    background-color: #464646;
+}
+
+/* USERS LIST */
+.list_users {
+    margin: 5% 40% 5% 40%;
+    background-color: #e6e6e6;
+    border-radius: 8px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.list_item {
+    margin: 5%;
+}
+
+.list_user_name {
+    text-align: left;
+}
+
+.list_user_link {
+    float: right;
+    margin-right: 5%;
+}

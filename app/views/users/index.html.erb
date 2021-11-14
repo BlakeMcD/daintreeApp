@@ -1,7 +1,14 @@
 <h1>Users</h1>
 
-<ul>
+<ul class=list_users>
     <%@users.each do |user|%>
-        <li><%=link_to user.first_name, user_path(user)%></li>
+        
+        <li class=list_item>
+            <span class="list_user_name"><%=user.first_name%> <%=user.last_name%></span>
+            <span class="list_user_link">
+                <%=link_to "User Profile", user_path(user)%>
+            </span>
+        </li>
+        
     <%end%>
 </ul>

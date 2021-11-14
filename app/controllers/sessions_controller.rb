@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
         if @user.admin 
             redirect_to admin_path
         else
-        redirect_to items_path
+            redirect_to items_path
         end
 
     
@@ -44,7 +44,7 @@ class SessionsController < ApplicationController
         session.delete :user_id
         session.delete :admin
         p session
-        redirect_to items_path  #gotta fix this. 
+        redirect_to "/" 
       end
 
 
