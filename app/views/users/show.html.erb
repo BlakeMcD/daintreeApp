@@ -1,34 +1,45 @@
 <h1>User Profile</h1>
 
-<label>First Name:</label>
-<%=@user.first_name%> <br>
+<div class="user_profile">
+    <div class="personal_details">
+        <h2 class="user_profile_header">Details</h2>
+        <br>
 
-<label>Last Name:</label>
-<%=@user.last_name%> <br>
+        <label><strong>User ID:</strong></label>
+        <%=@user.id%> <br><br>
 
-<label>Date of Birth:</label>
-<%=@user.dob%> <br>
+        <label><strong>First Name:</strong></label>
+        <%=@user.first_name%> <br>
 
-<label>Email:</label>
-<%=@user.email%> <br>
+        <label><strong>Last Name:</strong></label>
+        <%=@user.last_name%> <br><br>
 
-<label>Phone:</label>
-<%=@user.phone%> <br>
+        <label><strong>Email:</strong></label>
+        <%=@user.email%> <br>
 
-<br>
-<h2>Address</h2>
-<br>
+        <label><strong>Phone:</strong></label>
+        <%=@user.phone%> <br><br>
 
-<label>Street Address:</label>
+        <label><strong>Birthday:</strong></label>
+        <%=@user.dob%> <br><br>
+    </div>
 
-<%=@address[0][:street_address]%> <br>
-<label>City:</label>
-<%=@address[0][:city]%> <br>
-<label>State:</label>
-<%=@address[0][:state]%> <br>
-<label>Postal Code:</label>
-<%=@address[0][:postcode]%> <br>
+    <div class="address">
+        <h2 class="user_profile_header">Address</h2>
+        <br>
 
+        <label><strong>Street Address:</strong></label>
+
+        <%=@address[0][:street_address]%> <br>
+        <label><strong>City:</strong></label>
+        <%=@address[0][:city]%> <br>
+        <label><strong>State:</strong></label>
+        <%=@address[0][:state]%> <br>
+        <label><strong>Postal Code:</strong></label>
+        <%=@address[0][:postcode]%> <br>
+
+    </div>
+</div>
 
 
 
