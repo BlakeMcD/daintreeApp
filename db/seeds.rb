@@ -6,10 +6,10 @@ User.create(username: 'Toneezy', password: '12345', admin: false, first_name: 'T
 User.create(username: 'Steveezy', password: '12345', admin: false, first_name: 'Steve', last_name: 'Rogers', email: 'steverogers@hotmail.com', phone: '0491 570 313', dob: 19180604)
 
 #Store
-Store.create(name: 'Pact', description: 'Patagonia, one of the earliest defenders of environmental ethics in the industry, was also one of the first to use recycled materials and switch to organic cotton.')
-Store.create(name: 'Patagonia', description: 'Pact is pretty obsessed with making super-soft clothes that also make the world a better place.')
-Store.create(name: 'Kotn', description: 'From its farms to its factories, Kotn creates all of its garments in a fair and safe environment, and is even helping suppliers make the switch to organic within the next five years.')
-Store.create(name: 'Quince', description: 'Quince sees sustainability “as the standard, not a luxury.” Its mission is to bring ethical and eco-friendly designs to the masses at accessible price-points')
+Store.create(name: 'Pact', description: 'Patagonia, one of the earliest defenders of environmental ethics in the industry, was also one of the first to use recycled materials and switch to organic cotton.', logo_url_square: 'https://schimiggy.com/wp-content/uploads/2020/04/pact-apparel-logo-square.jpg', logo_url_landscape: 'https://images.milledcdn.com/2021-02-05/Cer7seWhw13Tx3NK/qh24Po1vnwyg.png')
+Store.create(name: 'Patagonia', description: 'Pact is pretty obsessed with making super-soft clothes that also make the world a better place.', logo_url_square: 'https://www.charlespost.com/wp-content/uploads/2020/08/Patagonia-Logo-Square.png', logo_url_landscape: 'https://wallpaperaccess.com/full/4416552.jpg')
+Store.create(name: 'Kotn', description: 'From its farms to its factories, Kotn creates all of its garments in a fair and safe environment, and is even helping suppliers make the switch to organic within the next five years.', logo_url_square: 'https://fashionhedge.com/wp-content/uploads/2019/05/ezgif.com-webp-to-jpg.jpg', logo_url_landscape: 'https://slowfashioncanada.ca/wp-content/uploads/2020/11/kotn-logo.png')
+Store.create(name: 'Quince', description: 'Quince sees sustainability “as the standard, not a luxury.” Its mission is to bring ethical and eco-friendly designs to the masses at accessible price-points', logo_url_square: 'https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_1/kpxee8cvpgjkrmea05v3', logo_url_landscape: 'https://lever-client-logos.s3.us-west-2.amazonaws.com/344e8d8f-5b4e-42fb-a2e1-826132b2645a-1621459079903.png')
 
 #Item
 s1 = Store.find_by id:1

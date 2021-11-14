@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 2021_10_23_112830) do
   create_table "stores", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.string "logo_url_square"
+    t.string "logo_url_landscape"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

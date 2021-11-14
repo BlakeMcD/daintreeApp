@@ -32,18 +32,13 @@
 <h1>Pick a store to browse</h1>
 
 <section id="featured_stores">
-    <a href="http://localhost:3000/stores/1/items">
-        <img alt="Pact" src="https://schimiggy.com/wp-content/uploads/2020/04/pact-apparel-logo-square.jpg">
-    </a>
-    <a href="http://localhost:3000/stores/2/items">
-        <img alt="Patagonia" src="https://www.charlespost.com/wp-content/uploads/2020/08/Patagonia-Logo-Square.png">
-    </a>
-    <a href="http://localhost:3000/stores/3/items">
-        <img alt="Kotn" src="https://fashionhedge.com/wp-content/uploads/2019/05/ezgif.com-webp-to-jpg.jpg">
-    </a>
-    <a href="http://localhost:3000/stores/4/items">
-        <img alt="Kotn" src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_1/kpxee8cvpgjkrmea05v3">
-    </a>
+
+    <%@stores.each do |store|%>
+        <a href=<%="http://localhost:3000/stores/"%><%=store.id%><%="/items"%>>
+        <img alt=<%=store.name%> src=<%=store.logo_url_square%>>
+        </a>
+    <%end%>
+    
 </section>
 
 <div class="section_spacer"></div>
