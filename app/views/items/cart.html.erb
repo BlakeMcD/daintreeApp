@@ -29,94 +29,113 @@
     </div>
 </header>
 
+<% if @cart.length > 0%>
 
     <h2>Your Cart</h2>
+    <div class="cart">
+        <div class="cart_items">
+            <%@cart.each do |item|%>
 
 
-<div class="cart">
-    <div class="cart_items">
-        <%@cart.each do |item|%>
+                <div class=line_break></div>
+
+                <div class="cart_item">
+
+            
+                    <div class="cart_image_and_logo">
+                        <img class="cart_item_image" src=<%=item.img_url%>>
+
+                        <div class="cart_logo">                             
+                            <%if item.store != nil %> 
+                                <%case item.store.id%>
+                                    <%when 1%>
+                                    <img class="cart_item_image_logo" alt="Pact" src="https://schimiggy.com/wp-content/uploads/2020/04/pact-apparel-logo-square.jpg">
+                                    <%when 2%>
+                                    <img class="cart_item_image_logo" alt="Patagonia" src="https://www.charlespost.com/wp-content/uploads/2020/08/Patagonia-Logo-Square.png">
+                                    <%when 3%>
+                                    <img class="cart_item_image_logo" alt="Kotn" src="https://fashionhedge.com/wp-content/uploads/2019/05/ezgif.com-webp-to-jpg.jpg">
+                                <%end%>
+                            <%end%>                   
+                        </div>
+                    </div>
+
+                    <div class="cart_details">
+                        
+                        
+
+                        <div class="item_title">
+                        <%=item.sub_category%><%=" - "%><%=item.name%> <br>
+                        </div>
+
+                        <div class="item_price">
+                        <%= number_to_currency item.price_cents / 100.0 %> <br>
+                        </div>
+
+                        <% if @cart.include?(item) %>                
+
+                                <p class="remove_from_cart_in_cart"><%= link_to 'REMOVE FROM CART', remove_from_cart_in_cart_path(item.id), method: :delete, class: "remove_from_cart_in_cart"%></p>
+                                
+                        <%end%>
 
 
-            <div class=line_break></div>
+                    </div>
+                
 
-            <div class="cart_item">
+
+                </div>
+                
+            <%end%>
+        </div>
 
         
-                <div class="cart_image_and_logo">
-                    <img class="cart_item_image" src=<%=item.img_url%>>
-
-                    <div class="cart_logo">                             
-                        <%if item.store != nil %> 
-                            <%case item.store.id%>
-                                <%when 1%>
-                                <img class="cart_item_image_logo" alt="Pact" src="https://schimiggy.com/wp-content/uploads/2020/04/pact-apparel-logo-square.jpg">
-                                <%when 2%>
-                                <img class="cart_item_image_logo" alt="Patagonia" src="https://www.charlespost.com/wp-content/uploads/2020/08/Patagonia-Logo-Square.png">
-                                <%when 3%>
-                                <img class="cart_item_image_logo" alt="Kotn" src="https://fashionhedge.com/wp-content/uploads/2019/05/ezgif.com-webp-to-jpg.jpg">
-                            <%end%>
-                        <%end%>                   
-                    </div>
-                </div>
-
-                <div class="cart_details">
-                     
-                     
-
-                    <div class="item_title">
-                    <%=item.sub_category%><%=" - "%><%=item.name%> <br>
-                    </div>
-
-                    <div class="item_price">
-                    <%= number_to_currency item.price_cents / 100.0 %> <br>
-                    </div>
-
-                    <% if @cart.include?(item) %>                
-
-                            <p class="remove_from_cart_in_cart"><%= link_to 'REMOVE FROM CART', remove_from_cart_in_cart_path(item.id), method: :delete, class: "remove_from_cart_in_cart"%></p>
-                            
+        <div class="total">
+            <div class="total_components">
+                <p class="total_heading">Your Items</p>
+                <div class="item_price_listing">
+                    <%@cart.each do |item|%>
+                        <span class="total_item_label">
+                            <%=item.sub_category%><%=" - "%><%=item.name%><%=":"%>
+                        </span>
+                        <span class="total_item_price">
+                            <%=number_to_currency item.price_cents / 100.0%>
+                        </span>
+                        <br>
                     <%end%>
 
-
-                </div>
-               
-
-
-            </div>
-            
-        <%end%>
-    </div>
-
-    <div class="total">
-        <div class="total_components">
-            <p class="total_heading">Your Items</p>
-            <div class="item_price_listing">
-                <%@cart.each do |item|%>
-                    <span class="total_item_label">
-                        <%=item.sub_category%><%=" - "%><%=item.name%><%=":"%>
-                    </span>
-                    <span class="total_item_price">
-                        <%=number_to_currency item.price_cents / 100.0%>
-                    </span>
+                    <div class="grand_total">
                     <br>
-                <%end%>
+                        <span class="grand_total_text">Grand Total:</span>
+                        <span class="grand_total_price">
+                            <%=number_to_currency @cart.to_a.sum{ |item| item.price_cents} / 100.0%>
+                        </span>
 
-                <div class="grand_total">
-                <br>
-                    <span class="grand_total_text">Grand Total:</span>
-                    <span class="grand_total_price">
-                        <%=number_to_currency @cart.to_a.sum{ |item| item.price_cents} / 100.0%>
-                    </span>
-
+                    </div>
                 </div>
+                
             </div>
-            
         </div>
     </div>
-</div>
 
+<%else%>
+    <h2>Your Cart is Empty!</h2>
 
+    <h3 class="cart_is_empty_suggestion">Why not browse our featured stores?</h3>
+
+    <section id="featured_stores">
+        <a href="http://localhost:3000/stores/1/items">
+            <img alt="Pact" src="https://schimiggy.com/wp-content/uploads/2020/04/pact-apparel-logo-square.jpg">
+        </a>
+        <a href="http://localhost:3000/stores/2/items">
+            <img alt="Patagonia" src="https://www.charlespost.com/wp-content/uploads/2020/08/Patagonia-Logo-Square.png">
+        </a>
+        <a href="http://localhost:3000/stores/3/items">
+            <img alt="Kotn" src="https://fashionhedge.com/wp-content/uploads/2019/05/ezgif.com-webp-to-jpg.jpg">
+        </a>
+    </section>
+
+    <div class="section_spacer"></div>
+
+<%end%>
 
 
 <footer>
