@@ -512,3 +512,8 @@ footer {
 .address {
     flex: 1;
 }
+
+/* NEW STORE FORM */
+.new_store_form {
+    text-align: center;
+}
