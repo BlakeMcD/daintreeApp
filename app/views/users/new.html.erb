@@ -1,4 +1,36 @@
-<h1>Add a new user</h1>
+
+<header>
+    <div class="header_box" id="browsing_links">
+        <div class="header_link">
+            <%=link_to "COLLECTION", "/items", class: 'header_link' %>
+        </div>
+        <div class="header_link">
+            <%=link_to "STORES", "/stores", class: 'header_link' %>
+        </div>
+        <div class="header_link">
+            <%=link_to "WOMEN", "/women", class: 'header_link' %>
+        </div>
+        <div class="header_link">
+            <%=link_to "MEN", "/men", class: 'header_link' %>
+        </div>
+    </div>
+
+    <div class="header_box" id="header_logo">
+        <%=link_to image_tag("logos/daintree_logo_landscape_white.png")%> 
+    </div>
+
+    <div class="header_box" id="user_links">
+        <div id="user_links_spacer"></div>
+        <div id="user_links_image_signin">
+            <%=link_to image_tag("icons/user_signin_white.png"), {action: 'new', controller: 'sessions'}%>
+        </div>
+        <div id="user_links_image_cart">
+            <%=link_to image_tag("icons/shopping_cart_white.png"), {action: 'cart', controller: 'items'}%>
+        </div>
+    </div>
+</header>
+
+<h1>Create your account</h1>
 
 <% if @user.errors.any? %>
     <h2>There were some errors:</h2>
@@ -9,49 +41,83 @@
     </ul>
 <%end%>
 
-<%=form_for @user do |f|%>
+<div class="new_user_form">
+    <%=form_for @user do |f|%>
 
-    <label>Username:</label>
-    <%= f.text_field :username %>
+        <h3>Details</h3>
 
-    <label>Password:</label>
-    <%= f.text_field :password %>
+        <label>First Name:</label>
+        <%= f.text_field :first_name %>
+        <label>Last Name:</label>
+        <%= f.text_field :last_name %> <br><br>
 
-    <label>Password Confirmation:</label>
-    <%= f.text_field :password_confirmation %>
+        <label>Email:</label>
+        <%= f.text_field :email %>
+        <label>Phone:</label>
+        <%= f.text_field :phone %> <br><br>
 
-    <label>First Name:</label>
-    <%= f.text_field :first_name %>
-    <label>Last Name:</label>
-    <%= f.text_field :last_name %> <br><br>
-
-    <label>Birthday:</label>
-    <%= f.date_field :dob %> <br><br>
-
-    <label>Email:</label>
-    <%= f.text_field :email %>
-    <label>Phone:</label>
-    <%= f.text_field :phone %> <br><br>
+        <label>Gender:</label>
+        <%= select_tag "gender", options_for_select(["F", "M", "Not Specified"]), include_blank: true%>
+        <label>Birthday:</label>
+        <%= f.date_field :dob %> <br><br>
 
 
+        <h3>Address</h3>
 
-    <%= f.fields_for :addresses do |addr| %>
-        <%= addr.label :street_address %>
-        <%= addr.text_field :street_address %><br>
+        <%= f.fields_for :addresses do |addr| %>
+            <%= addr.label :street_address %>
+            <%= addr.text_field :street_address %><br><br>
 
-        <%= addr.label :city %>
-        <%= addr.text_field :city %><br>
+            <%= addr.label :city %>
+            <%= addr.text_field :city %>
 
-        <%= addr.label :state %>
-        <%= addr.text_field :state %><br>
+            <%= addr.label :state %>
+            <%= select_tag "state", options_for_select(["ACT", "NSW", "NT", "QLD", "SA", "VIC", "TAS", "WA"]), include_blank: true%>
+            
+            <%= addr.label :postcode %>
+            <%= addr.text_field :postcode %><br><br>
 
-        <%= addr.label :postcode %>
-        <%= addr.text_field :postcode %><br>
+            <%= addr.label :address_type %>
+            <%= select_tag "address_type", options_for_select(["Home", "Work"]), include_blank: true%> <br><br>
+        <%end%>
 
-        <%= addr.label :address_type %>
-        <%= addr.text_field :address_type %><br>
+        <h3>Username and Password</h3>
+
+        <label>Username:</label>
+        <%= f.text_field :username %> <br><br>
+
+        <label>Password:</label>
+        <%= f.text_field :password %>
+
+        <label>Password Confirmation:</label>
+        <%= f.text_field :password_confirmation %>
+
+        <br><br>
+        <%=f.submit "Submit"%>
     <%end%>
+</div>
 
-    <br>
-    <%=f.submit "Submit User"%>
-<%end%>
+<div class="section_spacer"></div>
+
+<footer>
+    <div class="footer_spacer"></div>
+
+    <div class="footer_icon">
+        <div class="footer_icon_image"><%=image_tag("icons/free_delivery_white.png") %></div>
+        <div>FREE DELIVERY OVER $50</div> 
+    </div>
+    <div class="footer_icon">
+        <div class="footer_icon_image"><%=image_tag("icons/buy_now_pay_later_white.png") %></div>
+        <div>BUY NOW PAY LATER</div> 
+    </div>
+    <div class="footer_icon">
+        <div class="footer_icon_image"><%=image_tag("icons/free_returns_white.png") %></div>
+        <div>FREE RETURNS</div> 
+    </div>
+    <div class="footer_icon">
+        <div class="footer_icon_image"><%=image_tag("icons/click_and_collect_white.png") %></div>
+        <div>CLICK AND COLLECT</div> 
+    </div>
+
+    <div class="footer_spacer"></div>
+</footer>

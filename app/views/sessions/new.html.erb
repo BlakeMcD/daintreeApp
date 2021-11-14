@@ -45,6 +45,9 @@
         <input type="password" name='password'>
         <br><br>
         <input type='submit' value='login'>
+        <br><br>
+        <span style="font-weight:bold; font-style:italic">Don't have an account?</span>
+        <a href="/users/new">Sign up</a>
 
     </form>
 
@@ -62,20 +65,12 @@
             <div class="omniauth_link">
                 <%=link_to image_tag("buttons/login_with_facebook.png"), '/auth/facebook', {method: :post}  %> 
             </div>
+        <% end %>
     </div>
 
-</div>
-
-<div class="new_user_login_page">
-    <h3 class="new_user_page_link">Don't have an account? Sign up!</h3><br>
-
-
-    <div class="new_user_page_link">
-        <a href="/users/new" class="btn_create_user" id="btn_create_user">CREATE AN ACCOUNT</a>
-    </div>
 </div>
   
-<% end %>
+
 
 
 
