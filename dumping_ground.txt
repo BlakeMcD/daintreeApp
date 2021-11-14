@@ -174,3 +174,9 @@ BUTTON THAT WAS ON LOGIN PAGE
         <a href="/users/new" class="btn_create_user" id="btn_create_user">CREATE AN ACCOUNT</a>
     </div>
 </div>
+
+ORIGINAL USER LINK LOGIN BUTTON
+<div id="user_links_image_signin">
+    // <%=link_to image_tag("icons/user_signin_white.png"), {action: 'new', controller: 'sessions'}%>
+    <%= select_tag "user", options_for_select(["login", "logout", "edit details"]), include_blank: true%>
+</div>
