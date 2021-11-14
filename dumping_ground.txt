@@ -180,3 +180,8 @@ ORIGINAL USER LINK LOGIN BUTTON
     // <%=link_to image_tag("icons/user_signin_white.png"), {action: 'new', controller: 'sessions'}%>
     <%= select_tag "user", options_for_select(["login", "logout", "edit details"]), include_blank: true%>
 </div>
+
+ORIGINAL LOGO HEADER HOMEPAGE
+<div class="header_box" id="header_logo">
+        <%=link_to image_tag("logos/daintree_logo_landscape_white.png", onmouseover: "logos/daintree_logo_landscape_tan.png")%> 
+    </div>
