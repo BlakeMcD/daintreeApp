@@ -302,8 +302,8 @@ footer {
 
 .cart {
     display: flex;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 .total {
@@ -388,6 +388,10 @@ footer {
     background-color:#fff;
     height:1px;
     width:50%;
+}
+
+.cart_is_empty_suggestion {
+    text-align: center;
 }
 
 /* LOGIN FORM  */
