@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
-    before_action :require_admin_login, :only => [:index]
+    before_action :require_admin_login, :only => [:index, :admin]
 
     def index
         @users = User.all
+    end
+
+    def admin
     end
 
     def show

@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   #home
   root 'items#home'
 
+  #admin
+  get "/admin", to: "users#admin"
+
   #custom routes
   get "/men", to: "items#men"
   get "/women", to: "items#women"
