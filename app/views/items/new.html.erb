@@ -1,53 +1,56 @@
 <h1>Add a new item</h1>
 
 <% if @item.errors.any? %>
-    <h2>There were some errors:</h2>
-    <ul>
-        <%@item.errors.full_messages.each do |message|%>
-            <li><%= message %></li>
-        <%end%>
-    </ul>
+    <div class="errors">
+        <h3>There were some errors:</h3>
+        <ul class="error_ul">
+            <%@item.errors.full_messages.each do |message|%>
+                <li><%= message %></li>
+            <%end%>
+        </ul>
+    </div>
 <%end%>
 
-<div class="new_item_form">
+
     <%=form_for @item do |f|%>
+        <div class="new_item_form">
+            <div class="new_item_info_1">
+                <label><strong>Item Name:</strong></label><br>
+                <%= f.text_field :name %> <br><br>
 
-        <div class="new_item_info_1">
-            <label><strong>Item Name:</strong></label><br>
-            <%= f.text_field :name %> <br><br>
+                <label><strong>Category:</strong></label><br>
+                <%=f.select :category, options_for_select(["clothes"]), include_blank: true%> <br><br>
 
-            <label><strong>Category:</strong></label><br>
-            <%= f.text_field :category %> <br><br>
+                <label><strong>Sub-Category:</strong></label><br>
+                <%=f.select :sub_category, options_for_select(["jeans", "shirt", "jacket"]), include_blank: true%> <br><br>
 
-            <label><strong>Sub-Category:</strong></label><br>
-            <%= f.text_field :sub_category %> <br><br>
+                <label><strong>Brief Description:</strong></label><br>
+                <%=f.text_area :description %> <br><br>
+            </div>
 
-            <label><strong>Brief Description:</strong></label><br>
-            <%=f.text_area :description %> <br><br>
+            <div class="new_item_info_2">
+                <label><strong>Gender:</strong></label><br>
+                <%=f.select :gender, options_for_select(["M", "F", "Not Specified"]), include_blank: true%> <br><br>
+
+                <label><strong>Size:</strong></label><br>
+                <%=f.select :size, options_for_select(["S", "M", "L"]), include_blank: true%> <br><br>
+
+                <label><strong>Price (in cents):</strong></label><br>
+                <%= f.number_field :price_cents %> <br><br>
+
+                <label><strong>Stock:</strong></label><br>
+                <%= f.number_field :stock %> <br><br>
+            </div>
+
+            <div class="new_item_info_3">
+                <label><strong>Image URL:</strong></label><br>
+                <%= f.text_field :img_url %> <br><br>
+
+                <label><strong>Store (id number):</strong></label><br>
+                <%= f.text_field :store_id %> <br><br>
+            </div>
         </div>
-
-        <div class="new_item_info_2">
-            <label><strong>Gender:</strong></label><br>
-            <%= f.text_field :gender %> <br><br>
-
-            <label><strong>Size:</strong></label><br>
-            <%= f.text_field :size %> <br><br>
-
-            <label><strong>Price (in cents):</strong></label><br>
-            <%= f.number_field :price_cents %> <br><br>
-
-            <label><strong>Stock:</strong></label><br>
-            <%= f.number_field :stock %> <br><br>
+        <div class="item_submit">
+            <%=f.submit "Submit Item"%>
         </div>
-
-        <div class="new_item_info_3">
-            <label><strong>Image URL:</strong></label><br>
-            <%= f.text_field :img_url %> <br><br>
-
-            <label><strong>Store:</strong></label><br>
-            <%= f.text_field :store_id %> <br><br>
-        </div>
-
-        <%=f.submit "Submit Item"%>
     <%end%>
-</div>

@@ -1,12 +1,14 @@
 <h1>Add a new store</h1>
 
 <% if @store.errors.any? %>
-    <h2>There were some errors:</h2>
-    <ul>
-        <%@store.errors.full_messages.each do |message|%>
-            <li><%= message %></li>
-        <%end%>
-    </ul>
+    <div class="errors">
+        <h3>There were some errors:</h3>
+        <ul class="error_ul">
+            <%@store.errors.full_messages.each do |message|%>
+                <li><%= message %></li>
+            <%end%>
+        </ul>
+    </div>
 <%end%>
 
 <div class="new_store_form">

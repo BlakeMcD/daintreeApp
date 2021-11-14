@@ -521,4 +521,32 @@ footer {
 /* NEW ITEM FORM */
 .new_item_form {
     text-align: center;
+    display: flex;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.new_item_info_1 {
+    flex: 1;
+}
+
+.new_item_info_2 {
+    flex: 1;
+}
+
+.new_item_info_3 {
+    flex: 1;
+}
+
+.item_submit {
+    text-align: center;
+}
+
+.errors {
+    text-align: center;
+}
+
+.error_ul {
+    display: inline-block;
+    text-align: left;
 }
