@@ -1,6 +1,6 @@
 
 #User
-User.create(username: 'Blakeezy', password: '12345', admin: true, first_name: 'Blake', last_name: 'McDeezy', email: 'blakemcd@gmail.com', phone: '0491 570 159', dob: 19880219)
+User.create(username: 'Blakeezy', password: '12345', admin: true, first_name: 'Blake', last_name: 'McDeezy', email: 'blake@mdeezy.com', phone: '0491 570 159', dob: 19880219)
 User.create(username: 'Peteezy', password: '12345', admin: false, first_name: 'Peter', last_name: 'Parker', email: 'peterparker@gmail.com', phone: '0491 570 156', dob: 20010810)
 User.create(username: 'Toneezy', password: '12345', admin: false, first_name: 'Tony', last_name: 'Stark', email: 'tonystark@yahoo.com', phone: '0491 570 006', dob: 19700529)
 User.create(username: 'Steveezy', password: '12345', admin: false, first_name: 'Steve', last_name: 'Rogers', email: 'steverogers@hotmail.com', phone: '0491 570 313', dob: 19180604)
@@ -9,11 +9,13 @@ User.create(username: 'Steveezy', password: '12345', admin: false, first_name: '
 Store.create(name: 'Pact', description: 'Patagonia, one of the earliest defenders of environmental ethics in the industry, was also one of the first to use recycled materials and switch to organic cotton.')
 Store.create(name: 'Patagonia', description: 'Pact is pretty obsessed with making super-soft clothes that also make the world a better place.')
 Store.create(name: 'Kotn', description: 'From its farms to its factories, Kotn creates all of its garments in a fair and safe environment, and is even helping suppliers make the switch to organic within the next five years.')
+Store.create(name: 'Quince', description: 'Quince sees sustainability “as the standard, not a luxury.” Its mission is to bring ethical and eco-friendly designs to the masses at accessible price-points')
 
 #Item
 s1 = Store.find_by id:1
 s2 = Store.find_by id:2
 s3 = Store.find_by id:3
+s4 = Store.find_by id:4
 
     # sub_category: jeans
     new_item1s1ijeans = s1.items.build(name: 'earthy blue jeans', category: 'clothes', sub_category: 'jeans', stock: 4, price_cents: 3654, description: 'earthy ', size: 'S', gender: 'M', img_url: 'https://connor.imgix.net/Connor/Products/C18DE105_DEN_1.png')
@@ -23,11 +25,11 @@ s3 = Store.find_by id:3
     new_item1s3ijeans = s1.items.build(name: 'earthy blue jeans', category: 'clothes', sub_category: 'jeans', stock: 6, price_cents: 5567, description:'blue jeans', size: 'L', gender: 'M', img_url: 'https://connor.imgix.net/Connor/Products/C18DE105_DEN_1.png')
     new_item1s3ijeans.save
 
-    new_item2s1ijeans = s2.items.build(name: 'dirty blue jeans', category: 'clothes', sub_category: 'jeans', stock: 4, price_cents: 5675, description: 'blue jeans', size: 'S', gender: 'F', img_url: 'https://image.made-in-china.com/2f0j00GFwQfiAagsgY/OEM-Brand-Light-Blue-Damaged-Distressed-Skinny-Denim-Jeans-Women.jpg')
+    new_item2s1ijeans = s2.items.build(name: 'faded blue jeans', category: 'clothes', sub_category: 'jeans', stock: 4, price_cents: 5675, description: 'blue jeans', size: 'S', gender: 'F', img_url: 'https://image.made-in-china.com/2f0j00GFwQfiAagsgY/OEM-Brand-Light-Blue-Damaged-Distressed-Skinny-Denim-Jeans-Women.jpg')
     new_item2s1ijeans.save
-    new_item2s2ijeans = s2.items.build(name: 'dirty blue jeans', category: 'clothes', sub_category: 'jeans', stock: 6, price_cents: 5776, description:'blue jeans', size: 'M', gender: 'F', img_url: 'https://image.made-in-china.com/2f0j00GFwQfiAagsgY/OEM-Brand-Light-Blue-Damaged-Distressed-Skinny-Denim-Jeans-Women.jpg')
+    new_item2s2ijeans = s2.items.build(name: 'faded blue jeans', category: 'clothes', sub_category: 'jeans', stock: 6, price_cents: 5776, description:'blue jeans', size: 'M', gender: 'F', img_url: 'https://image.made-in-china.com/2f0j00GFwQfiAagsgY/OEM-Brand-Light-Blue-Damaged-Distressed-Skinny-Denim-Jeans-Women.jpg')
     new_item2s2ijeans.save
-    new_item2s3ijeans = s2.items.build(name: 'dirty blue jeans', category: 'clothes', sub_category: 'jeans', stock: 6, price_cents: 4567, description:'blue jeans', size: 'L', gender: 'M', img_url: 'https://connor.imgix.net/Connor/Products/C18DE105_DEN_1.png')
+    new_item2s3ijeans = s2.items.build(name: 'faded blue jeans', category: 'clothes', sub_category: 'jeans', stock: 6, price_cents: 4567, description:'blue jeans', size: 'L', gender: 'M', img_url: 'https://connor.imgix.net/Connor/Products/C18DE105_DEN_1.png')
     new_item2s3ijeans.save
 
     new_item3s1ijeans = s3.items.build(name: 'rugged blue jeans', category: 'clothes', sub_category: 'jeans', stock: 4, price_cents: 5476, description: 'blue jeans', size: 'S', gender: 'M', img_url: 'https://connor.imgix.net/Connor/Products/C18DE105_DEN_1.png')
@@ -36,6 +38,13 @@ s3 = Store.find_by id:3
     new_item3s2ijeans.save
     new_item3s3ijeans = s3.items.build(name: 'rugged blue jeans', category: 'clothes', sub_category: 'jeans', stock: 6, price_cents: 3456, description:'blue jeans', size: 'L', gender: 'F', img_url: 'https://image.made-in-china.com/2f0j00GFwQfiAagsgY/OEM-Brand-Light-Blue-Damaged-Distressed-Skinny-Denim-Jeans-Women.jpg')
     new_item3s3ijeans.save
+
+    new_item4s1ijeans = s4.items.build(name: 'comfy blue jeans', category: 'clothes', sub_category: 'jeans', stock: 4, price_cents: 4567, description: 'blue jeans', size: 'S', gender: 'M', img_url: 'https://connor.imgix.net/Connor/Products/C18DE105_DEN_1.png')
+    new_item4s1ijeans.save
+    new_item4s2ijeans = s4.items.build(name: 'comfy blue jeans', category: 'clothes', sub_category: 'jeans', stock: 6, price_cents: 2454, description:'blue jeans', size: 'M', gender: 'M', img_url: 'https://connor.imgix.net/Connor/Products/C18DE105_DEN_1.png')
+    new_item4s2ijeans.save
+    new_item4s3ijeans = s4.items.build(name: 'comfy blue jeans', category: 'clothes', sub_category: 'jeans', stock: 6, price_cents: 3456, description:'blue jeans', size: 'L', gender: 'F', img_url: 'https://image.made-in-china.com/2f0j00GFwQfiAagsgY/OEM-Brand-Light-Blue-Damaged-Distressed-Skinny-Denim-Jeans-Women.jpg')
+    new_item4s3ijeans.save
     
     # #sub_category: shirt
     new_item1s1ishirt = s1.items.build(name: 'great fancy tshirt', category: 'clothes', sub_category: 'shirt', stock: 4, price_cents: 6987, description:'green shirt', size: 'S', gender: 'F', img_url: 'https://www.painfulclothing.com/784-thickbox_default/hate-woman-tee.jpg')
@@ -59,6 +68,13 @@ s3 = Store.find_by id:3
     new_item3s3ishirt = s3.items.build(name: 'swanky tshirt', category: 'clothes', sub_category: 'shirt', stock: 4, price_cents: 3455, description:'green tshirt', size: 'L', gender: 'M', img_url: 'https://cdn.shopify.com/s/files/1/1779/6353/products/tallest-man-on-earth-guitar-tshirt-black-front_1024x1024.png?v=1494317466')
     new_item3s3ishirt.save
 
+    new_item4s1ishirt = s4.items.build(name: 'light tshirt', category: 'clothes', sub_category: 'shirt', stock: 4, price_cents: 3566, description:'green tshirt', size: 'S', gender: 'M', img_url: 'https://cdn.shopify.com/s/files/1/1779/6353/products/tallest-man-on-earth-guitar-tshirt-black-front_1024x1024.png?v=1494317466')
+    new_item4s1ishirt.save
+    new_item4s2ishirt = s4.items.build(name: 'light tshirt', category: 'clothes', sub_category: 'shirt', stock: 4, price_cents: 5366, description:'green tshirt', size: 'M', gender: 'F', img_url: 'https://www.painfulclothing.com/784-thickbox_default/hate-woman-tee.jpg')
+    new_item4s2ishirt.save
+    new_item4s3ishirt = s4.items.build(name: 'light tshirt', category: 'clothes', sub_category: 'shirt', stock: 4, price_cents: 3455, description:'green tshirt', size: 'L', gender: 'M', img_url: 'https://cdn.shopify.com/s/files/1/1779/6353/products/tallest-man-on-earth-guitar-tshirt-black-front_1024x1024.png?v=1494317466')
+    new_item4s3ishirt.save
+
     # # #sub_category: jacket
     new_item1s1ijacket = s1.items.build(name: 'leather jacket', category: 'clothes', sub_category: 'jacket', stock: 4, price_cents: 8576, description:'suede jacket', size: 'S', gender: 'F', img_url: 'https://www.distressedjackets.com/image/cache//catalog/2020/oko-1000x1000.PNG')
     new_item1s1ijacket.save
@@ -80,6 +96,13 @@ s3 = Store.find_by id:3
     new_item3s2ijacket.save
     new_item3s3ijacket = s3.items.build(name: 'trendy leather jacket', category: 'clothes', sub_category: 'jacket', stock: 6, price_cents: 4765, description:'suede jacket', size: 'L', gender: 'F', img_url: 'https://www.distressedjackets.com/image/cache//catalog/2020/oko-1000x1000.PNG')
     new_item3s3ijacket.save
+
+    new_item4s1ijacket = s4.items.build(name: 'weathered leather jacket', category: 'clothes', sub_category: 'jacket', stock: 4, price_cents: 2345, description:'suede jacket', size: 'S', gender: 'F', img_url: 'https://www.distressedjackets.com/image/cache//catalog/2020/oko-1000x1000.PNG')
+    new_item4s1ijacket.save
+    new_item4s2ijacket = s4.items.build(name: 'weathered leather jacket', category: 'clothes', sub_category: 'jacket', stock: 4, price_cents: 6578, description:'suede jacket', size: 'M', gender: 'M', img_url: 'https://ae01.alicdn.com/kf/Hbe699bdd0f904814aefeb078d00f54eeq/PU-Leather-Jacket-Men-Winter-Casual-Stand-Jackets-Man-Motorcycle-Vintage-Leather-Mens-Jacket-Coat-Chaqueta.jpg')
+    new_item4s2ijacket.save
+    new_item4s3ijacket = s4.items.build(name: 'weathered leather jacket', category: 'clothes', sub_category: 'jacket', stock: 6, price_cents: 4765, description:'suede jacket', size: 'L', gender: 'F', img_url: 'https://www.distressedjackets.com/image/cache//catalog/2020/oko-1000x1000.PNG')
+    new_item4s3ijacket.save
 
 #Address
 u1 = User.find_by id:1
