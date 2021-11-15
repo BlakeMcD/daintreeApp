@@ -31,6 +31,32 @@
     margin-bottom: 10%;
 }
 
+/* Already logged in */
+.already_logged_in {
+    text-align: center;
+    padding-bottom: 5%;
+}
+
+.already_logged_in_text {
+    padding-bottom: 1em;
+}
+
+.btn_logout {
+    background-color: #191919; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 32px;
+    border-radius: 8px;
+    transition-duration: 0.5s;
+}
+
+.btn_logout:hover {
+    background-color: #464646;
+}
+
 /* NEW USER FORM */
 
 .new_user_form {

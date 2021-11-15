@@ -1,0 +1,27 @@
+/* button */
+
+.login_notice {
+    position: relative;
+    text-align: center;
+}
+
+.btn_login {
+    background-color: #191919; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 32px;
+    border-radius: 8px;
+    transition-duration: 0.5s;
+}
+
+.btn_login:hover {
+    background-color: #464646;
+}
+
+
+.login_text {
+    padding-bottom: 1%;
+}
