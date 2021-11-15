@@ -39,16 +39,25 @@ class UsersController < ApplicationController
     end
 
     def edit
-        @user = User.find(params[:id])
-        # raise @user.inspect
-        @address = @user.address
-        # raise @address.inspect
+
+        if params[:id] != nil
+            # raise params.inspect
+            @user = User.find(params[:id])
+            
+            @address = @user.address
+            # raise @address.inspect
+        else
+            redirect_to login_first_path
+        end
 
         unless session[:admin] == true || session[:user_id] == @user.id
-            flash[:alert] = "You don't have permission to access this, ya swine!"
-            redirect_to items_path
+            
+            redirect_to login_first_path
         end
     end
+
+    # def login_first
+    # end
 
     def update
         # raise params.inspect

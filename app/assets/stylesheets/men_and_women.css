@@ -1,0 +1,52 @@
+
+/* SECTION - MEN AND WOMEN */
+
+#men_and_women {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.mw_image img {
+    width: 60%;
+}
+
+#mw_image_w {
+    padding-right: 20px;
+    text-align: right;
+}
+
+#mw_image_m {
+    padding-left: 20px;
+    text-align: left;
+}
+
+/* button */
+
+.btn_homepage_mw {
+    background-color: #191919; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 32px;
+    border-radius: 8px;
+    transition-duration: 0.5s;
+}
+
+.btn_homepage_mw:hover {
+    background-color: #464646;
+}
+
+#btn_homepage_w {
+    position: absolute;
+    top: 75%;
+    left: 25%;
+}
+
+#btn_homepage_m {
+    position: absolute;
+    top: 75%;
+    right: 25%;
+}

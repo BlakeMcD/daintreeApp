@@ -37,74 +37,13 @@
     </div>
 </header>
 
-<h2>Create your account</h2>
+<h2>You have been logged out</h2>
 
-<% if @user.errors.any? %>
-    <h2>There were some errors:</h2>
-    <ul>
-        <%@user.errors.full_messages.each do |message|%>
-            <li><%= message %></li>
-        <%end%>
-    </ul>
-<%end%>
+<div class="login_notice">
+    <p class="login_text">Do you want to keep on browsing?</p>
 
-<div class="new_user_form">
-    <%=form_for @user do |f|%>
-
-        <h3>Details</h3>
-
-        <label>First Name:</label>
-        <%= f.text_field :first_name %>
-        <label>Last Name:</label>
-        <%= f.text_field :last_name %> <br><br>
-
-        <label>Email:</label>
-        <%= f.text_field :email %>
-        <label>Phone:</label>
-        <%= f.text_field :phone %> <br><br>
-
-        <label>Gender:</label>
-        <%= select_tag "gender", options_for_select(["F", "M", "Not Specified"]), include_blank: true%>
-        <label>Birthday:</label>
-        <%= f.date_field :dob %> <br><br>
-
-
-        <h3>Address</h3>
-
-        <%= f.fields_for :addresses do |addr| %>
-            <%= addr.label :street_address %>
-            <%= addr.text_field :street_address %><br><br>
-
-            <%= addr.label :city %>
-            <%= addr.text_field :city %>
-
-            <%= addr.label :state %>
-            <%= select_tag "state", options_for_select(["ACT", "NSW", "NT", "QLD", "SA", "VIC", "TAS", "WA"]), include_blank: true%>
-            
-            <%= addr.label :postcode %>
-            <%= addr.text_field :postcode %><br><br>
-
-            <%= addr.label :address_type %>
-            <%= select_tag "address_type", options_for_select(["Home", "Work"]), include_blank: true%> <br><br>
-        <%end%>
-
-        <h3>Username and Password</h3>
-
-        <label>Username:</label>
-        <%= f.text_field :username %> <br><br>
-
-        <label>Password:</label>
-        <%= f.text_field :password %>
-
-        <label>Password Confirmation:</label>
-        <%= f.text_field :password_confirmation %>
-
-        <br><br>
-        <%=f.submit "Submit"%>
-    <%end%>
+    <a href="/" class="btn_login">Click here</a>
 </div>
-
-<div class="section_spacer"></div>
 
 <footer>
     <div class="footer_spacer"></div>

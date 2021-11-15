@@ -44,7 +44,6 @@ class SessionsController < ApplicationController
         session.delete :user_id
         session.delete :admin
         p session
-        redirect_to "/" 
       end
 
 
