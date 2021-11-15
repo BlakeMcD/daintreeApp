@@ -1,3 +1,42 @@
+<header>
+    <div class="header_box" id="browsing_links">
+        <div class="header_link">
+            <%=link_to "COLLECTION", "/items", class: 'header_link' %>
+        </div>
+        <div class="header_link">
+            <%=link_to "STORES", "/stores", class: 'header_link' %>
+        </div>
+        <div class="header_link">
+            <%=link_to "WOMEN", "/women", class: 'header_link' %>
+        </div>
+        <div class="header_link">
+            <%=link_to "MEN", "/men", class: 'header_link' %>
+        </div>
+    </div>
+
+    <div class="header_box" id="header_logo">
+        <%=link_to image_tag("logos/daintree_logo_landscape_white.png"), {action: 'home', controller: 'items'}  %>
+    </div>
+
+    <div class="header_box" id="user_links">
+        <div id="user_links_spacer"></div>
+        <div id="user_links_image_signin">
+            <%=image_tag("icons/user_signin_white.png")%>
+            
+        </div>
+        <span>
+                <select id="selectbox" name="user" onchange="javascript:location.href = this.value;">
+                    <option value="/" selected></option>
+                    <option value="/login">Login</option>
+                    <option value="/logout">Logout</option>
+                </select>
+        </span>
+        <div id="user_links_image_cart">
+            <%=link_to image_tag("icons/shopping_cart_white.png"), {action: 'cart', controller: 'items'}%>
+        </div>
+    </div>
+</header>
+
 <h2>You have been logged out</h2>
 
 <div class="login_notice">
