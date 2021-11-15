@@ -3,6 +3,7 @@
 .login_notice {
     position: relative;
     text-align: center;
+    padding-bottom: 5%;
 }
 
 .btn_login {

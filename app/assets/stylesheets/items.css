@@ -37,10 +37,12 @@
 
 .item_title {
     text-align: center;
+    font-weight: bold;
 }
 
 .item_price {
     text-align: center;
+    font-style: italic;
 }
 
 /* cart buttons */
