@@ -1,0 +1,46 @@
+
+
+/* USERS LIST */
+
+/* aggregate list */
+.list_users {
+    margin: 5% 40% 5% 40%;
+    background-color: #e6e6e6;
+    border-radius: 8px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.list_item {
+    padding: 5%;
+    border-bottom: dotted 1px black;
+}
+
+.list_user_name {
+    text-align: left;
+}
+
+.list_user_link {
+    float: right;
+    margin-right: 5%;
+}
+
+/* individual user */
+.user_profile {
+    display: flex;
+    margin: 0px 10% 0 30%;
+}
+    
+
+.user_profile_header {
+    text-align: left;
+    margin: 5%;
+}
+
+.personal_details {
+    flex: 1;
+}
+
+.address {
+    flex: 1;
+}

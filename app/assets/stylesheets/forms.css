@@ -1,0 +1,113 @@
+
+/* LOGIN FORM  */
+
+.login_options {
+    display: flex;
+    margin: 0% 10% 10% 10%;
+}
+
+.login_username {
+    text-align: center;
+    flex: 1;
+}
+
+.login_omniauth {
+    text-align: center;
+    flex: 1;
+}
+
+.omniauth_link {
+    text-align: center;
+    margin-top: 10px;;
+}
+
+.omniauth_link img{
+    width: 200px;
+
+}
+
+.new_user_login_page {
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+/* NEW USER FORM */
+
+.new_user_form {
+    margin-left: 35%;
+}
+
+/* ADMIN FORMS */
+
+.admin {
+    background-color: #ebebeb;
+    margin: 0% 30% 10% 30%;
+    border-radius: 8px;
+    padding-bottom: 5%;
+}
+
+.admin_heading {
+    text-align: center;
+    margin: 5% auto 5% auto;
+    padding: 5% 0 0 0;
+ 
+}
+
+.admin_section {
+    text-align: center;
+}
+
+.btn_admin {
+    background-color: #191919; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 32px;
+    border-radius: 8px;
+    transition-duration: 0.5s;
+}
+
+.btn_admin:hover {
+    background-color: #464646;
+}
+
+
+/* NEW STORE FORM */
+.new_store_form {
+    text-align: center;
+}
+
+/* NEW ITEM FORM */
+.new_item_form {
+    text-align: center;
+    display: flex;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.new_item_info_1 {
+    flex: 1;
+}
+
+.new_item_info_2 {
+    flex: 1;
+}
+
+.new_item_info_3 {
+    flex: 1;
+}
+
+.item_submit {
+    text-align: center;
+}
+
+.errors {
+    text-align: center;
+}
+
+.error_ul {
+    display: inline-block;
+    text-align: left;
+}
