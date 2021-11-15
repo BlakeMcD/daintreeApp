@@ -21,7 +21,7 @@
 
 .item_image_and_logo {
     position: relative;
-    border: 5px solid black;
+    /* border: 5px solid black; */
 }
 
 .item_image {
