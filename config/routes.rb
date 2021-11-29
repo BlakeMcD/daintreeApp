@@ -3,8 +3,11 @@ Rails.application.routes.draw do
   resources :items
   resources :stores do
     resources :items, only: [:index, :show]
-    end
-  resources :users
+  end
+
+  resources :users do
+    resources :favourites, only: [:index]
+  end
 
   #home
   root 'items#home'

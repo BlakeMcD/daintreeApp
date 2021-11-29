@@ -2,6 +2,9 @@ class Item < ApplicationRecord
     belongs_to :store, optional:true
     belongs_to :user, optional:true
 
+    has_many :favourites
+    has_many :users, through: :favourites
+
     validates :name, presence: true
     validates :category, presence: true
     validates :sub_category, presence: true

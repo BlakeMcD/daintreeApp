@@ -1,6 +1,8 @@
 class User < ApplicationRecord
     has_secure_password
     has_many :items
+    has_many :favourites
+    has_many :favourite_items, through: :favourites, source: :item
     has_many :stores, through: :items
     has_one :address
 
